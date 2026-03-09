@@ -25,29 +25,29 @@ export default async function HomePage() {
     <div className="flex flex-col min-h-screen">
 
       {/* Hero Section (Vistaprint Style Dark Block) */}
-      <section className="bg-primary text-white pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden">
+      <section className="bg-primary text-white pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden shadow-2xl transition-all">
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none mix-blend-overlay">
-          <div className="w-full h-full bg-gradient-to-l from-blue-500 to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none mix-blend-overlay">
+          <div className="w-full h-full bg-gradient-to-r from-blue-600 via-primary to-accent animate-gradient-x"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 font-serif leading-tight">
+        <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 font-serif leading-tight drop-shadow-md">
             If you need it carved, <br className="hidden md:block" /> we carve it.
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light">
+          <p className="text-lg md:text-xl text-blue-50 mb-10 max-w-2xl font-light drop-shadow">
             From custom-engraved wooden signs to beautiful stone photo gifts, we've got the
             perfect piece for you. Explore our top materials starting at just $29.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full font-bold px-8 h-14 text-base">
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 rounded-full font-bold px-8 h-14 text-base hover:scale-105 transition-transform shadow-lg">
               Try for $29
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 rounded-full font-bold px-8 h-14 text-base bg-transparent">
+            <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-primary rounded-full font-bold px-8 h-14 text-base bg-white/10 backdrop-blur-sm hover:scale-105 transition-all">
               Bestselling Carvings
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 rounded-full font-bold px-8 h-14 text-base bg-transparent">
+            <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-primary rounded-full font-bold px-8 h-14 text-base bg-white/10 backdrop-blur-sm hover:scale-105 transition-all">
               Design Services
             </Button>
           </div>
@@ -55,10 +55,10 @@ export default async function HomePage() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 border-b border-gray-100 px-4 md:px-8 bg-secondary/20">
+      <section className="py-12 border-b border-gray-100 px-4 md:px-8 bg-gradient-to-b from-secondary/30 to-white">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+          <div className="flex items-center gap-4 justify-center md:justify-start group cursor-default">
+            <div className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
             </div>
             <div>
@@ -66,8 +66,8 @@ export default async function HomePage() {
               <p className="text-sm text-gray-500">The right materials at great prices</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+          <div className="flex items-center gap-4 justify-center md:justify-start group cursor-default">
+            <div className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
             </div>
             <div>
@@ -75,8 +75,8 @@ export default async function HomePage() {
               <p className="text-sm text-gray-500">Get your custom carving in minutes</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+          <div className="flex items-center gap-4 justify-center md:justify-start group cursor-default">
+            <div className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
             </div>
             <div>

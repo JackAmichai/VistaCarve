@@ -18,10 +18,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     const originalPrice = product.price?.formatted?.discountedPrice;
 
     return (
-        <Card className="h-full flex flex-col border-none shadow-none bg-transparent group cursor-pointer overflow-hidden rounded-xl group-hover:bg-white transition-all">
+        <Card className="h-full flex flex-col border-none shadow-none bg-transparent group cursor-pointer overflow-hidden rounded-xl bg-white hover:shadow-2xl transition-all duration-500 animate-fade-in-up">
             <Link href={`/product/${product.slug}`} className="flex-1 flex flex-col">
                 {/* Image Stage */}
-                <div className="relative w-full aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden mb-4">
+                <div className="relative w-full aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden mb-4 border border-gray-100/50">
                     {primaryImage ? (
                         <Image
                             src={primaryImage}
