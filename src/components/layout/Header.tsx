@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Search, ShoppingCart, User, Folder, Heart, Menu, MessageCircleQuestion } from "lucide-react";
+import Image from "next/image";
+import { Search, ShoppingCart, User, Folder, Menu, MessageCircleQuestion } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 import { useEffect, useState } from "react";
 import CartDrawer from "../cart/CartDrawer";
@@ -50,10 +51,14 @@ export default function Header() {
                 <div className="flex items-center gap-4">
                     <Menu className="w-6 h-6 md:hidden text-gray-700 cursor-pointer" />
                     <Link href="/" className="flex items-center gap-2 group">
-                        {/* VistaCarve Logo */}
-                        <div className="flex items-end">
-                            <svg viewBox="0 0 100 100" className="w-8 h-8 text-blue-600 fill-current group-hover:scale-105 transition-transform"><path d="M50 0 L100 50 L50 100 L0 50 Z" /></svg>
-                            <span className="text-2xl font-bold tracking-tight text-gray-900 ml-2 font-serif -mb-1">vistacarve.</span>
+                        {/* VistaCarve Custom Logo */}
+                        <div className="relative w-40 h-10 group-hover:scale-105 transition-transform flex items-center">
+                            <Image
+                                src="/images/logo.png"
+                                alt="VistaCarve"
+                                fill
+                                className="object-contain object-left"
+                            />
                         </div>
                     </Link>
                 </div>

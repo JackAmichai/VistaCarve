@@ -25,7 +25,7 @@ export default async function HomePage() {
     <div className="flex flex-col min-h-screen">
 
       {/* Hero Section (Vistaprint Style Dark Block) */}
-      <section className="bg-[#1C2024] text-white pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden">
+      <section className="bg-primary text-white pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none mix-blend-overlay">
           <div className="w-full h-full bg-gradient-to-l from-blue-500 to-transparent"></div>
@@ -55,7 +55,7 @@ export default async function HomePage() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 border-b border-gray-100 px-4 md:px-8">
+      <section className="py-12 border-b border-gray-100 px-4 md:px-8 bg-secondary/20">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
