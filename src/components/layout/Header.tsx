@@ -50,15 +50,29 @@ export default function Header() {
             <div className="py-4 px-4 md:px-8 flex items-center justify-between gap-6 relative">
                 <div className="flex items-center gap-4">
                     <Menu className="w-6 h-6 md:hidden text-gray-700 cursor-pointer" />
-                    <Link href="/" className="flex items-center gap-2 group">
-                        {/* VistaCarve Custom Logo */}
-                        <div className="relative w-40 h-10 group-hover:scale-105 transition-transform flex items-center">
+                    <Link href="/" className="flex items-center gap-3 group">
+                        {/* Custom VistaCarve Icon/Logo */}
+                        <div className="relative w-10 h-10 group-hover:scale-110 transition-transform flex items-center">
                             <Image
                                 src="/images/logo.png"
-                                alt="VistaCarve"
+                                alt="VistaCarve Logo"
                                 fill
-                                className="object-contain object-left"
+                                className="object-contain"
                             />
+                        </div>
+                        {/* Text Lockup: VistaCarve x Wix */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-2xl font-bold tracking-tight text-gray-900 font-serif">VistaCarve</span>
+                            <span className="text-sm font-medium text-gray-400">x</span>
+                            {/* Simple Wix Logo SVG */}
+                            <svg className="h-4 w-auto text-black fill-current" viewBox="0 0 76 29" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M43.833 28.5L34.167 0h9.333l4.667 15.667L52.833 0h8.667l4.667 15.667L70.833 0h5l-9.667 28.5h-9L52.5 13.167 47.833 28.5h-4z" />
+                                <circle cx="21" cy="4" r="4" />
+                                <path d="M16 9h10v19.5H16z" />
+                                <path d="M10 9L7.5 28.5H5L2.5 9H0v-1h10v1z" fill="none" />
+                                {/* Simplistic W */}
+                                <path d="M0 9h5.5l2.5 13L10.5 9h5v19.5H10v-13l-2.5 13h-4L1 9.5V28.5H0V9z" />
+                            </svg>
                         </div>
                     </Link>
                 </div>
