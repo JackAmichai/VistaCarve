@@ -9,27 +9,53 @@ export const revalidate = 60;
 export default async function CategoryPage({ params }: { params: { category: string } }) {
     const { category } = params;
 
-    let collection = null;
-    let products = [];
+    let collection: any = null;
+    let products: any[] = [];
 
     try {
-        // 1. Fetch collection by slug
-        const colResp = await wixClient.collections
-            .queryCollections()
-            .eq("slug", category)
-            .limit(1)
-            .find();
-
-        if (colResp.items.length > 0) {
-            collection = colResp.items[0];
-
-            // 2. Fetch products for this collection
-            const prodResp = await wixClient.products
-                .queryProducts()
-                .hasSome("collectionIds", [collection._id])
+        // 1. Check for mock categories
+        if (category === "corporate-gifts") {
+            collection = {
+                _id: "mock-corporate",
+                name: "Corporate Gifts",
+                description: "Impress your clients and team with custom-engraved premium pieces.",
+            };
+            products = [
+                { _id: "c1", name: "Executive Pen Box", priceData: { formatted: { price: "$49.99", discountedPrice: "$49.99" } }, media: { mainMedia: { image: { url: "/images/corporate/pen gift.png" } } }, ribbon: "Bestseller", slug: "executive-pen-box" },
+                { _id: "c2", name: "Deer Statue Corporate Award", priceData: { formatted: { price: "$129.99", discountedPrice: "$129.99" } }, media: { mainMedia: { image: { url: "/images/corporate/deer gift.png" } } }, slug: "deer-statue-award" },
+                { _id: "c3", name: "Premium Metal Statue", priceData: { formatted: { price: "$199.99", discountedPrice: "$149.99" } }, media: { mainMedia: { image: { url: "/images/corporate/statue metal.png" } } }, ribbon: "Sale", slug: "premium-metal-statue" },
+                { _id: "c4", name: "Custom Sword Engraving", priceData: { formatted: { price: "$299.99", discountedPrice: "$299.99" } }, media: { mainMedia: { image: { url: "/images/corporate/sword gift.png" } } }, slug: "custom-sword-engraving" },
+                { _id: "c5", name: "Silver Tree Centerpiece", priceData: { formatted: { price: "$149.99", discountedPrice: "$149.99" } }, media: { mainMedia: { image: { url: "/images/corporate/tree gift.png" } } }, slug: "silver-tree-centerpiece" },
+            ];
+        } else if (category === "wedding-decor") {
+            collection = {
+                _id: "mock-wedding",
+                name: "Wedding Decor",
+                description: "Immortalize your special day with our masterfully carved stone and marble pieces.",
+            };
+            products = [
+                { _id: "w1", name: "Jesus Wedding Carving", priceData: { formatted: { price: "$89.99", discountedPrice: "$89.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Jesus wedding.png" } } }, ribbon: "New", slug: "jesus-wedding-carving" },
+                { _id: "w2", name: "Stone and Marble Maria", priceData: { formatted: { price: "$159.99", discountedPrice: "$159.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Stone and marbel maria.png" } } }, slug: "stone-marble-maria" },
+            ];
+        } else {
+            // 2. Fetch collection by slug from Wix
+            const colResp = await wixClient.collections
+                .queryCollections()
+                .limit(50)
                 .find();
 
-            products = prodResp.items || [];
+            const foundCol = colResp.items.find(c => c.slug === category || c.name?.toLowerCase() === category);
+            if (foundCol) {
+                collection = foundCol;
+
+                // 2. Fetch products for this collection
+                const prodResp = await wixClient.products
+                    .queryProducts()
+                    .hasSome("collectionIds", [collection._id])
+                    .find();
+
+                products = prodResp.items || [];
+            }
         }
     } catch (err) {
         console.error("Failed to fetch category data", err);
@@ -110,9 +136,9 @@ export default async function CategoryPage({ params }: { params: { category: str
                     ) : (
                         <div className="text-center py-20 bg-gray-50 rounded-xl">
                             <p className="text-lg text-gray-600 font-medium">No products available in this category.</p>
-                            <Button asChild className="mt-4 rounded-full" variant="outline">
-                                <Link href="/shop">Browse all categories</Link>
-                            </Button>
+                            <Link href="/shop">
+                                <Button className="mt-4 rounded-full" variant="outline">Browse all categories</Button>
+                            </Link>
                         </div>
                     )}
                 </main>

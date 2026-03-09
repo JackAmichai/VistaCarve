@@ -12,6 +12,7 @@ const categories = [
     "Metal Engravings",
     "Stone Carvings",
     "Corporate Gifts",
+    "Wedding Decor",
     "Custom Signage",
 ];
 
