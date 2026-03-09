@@ -97,27 +97,29 @@ export default async function HomePage() {
         />
 
         {/* Ad Block (Vistaprint Style Collection Links) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <Link href="/shop/wood" className="group rounded-xl overflow-hidden relative aspect-square bg-gray-100 block">
+            <Image src="/images/wood_carvings.png" alt="Wood Carvings" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
             <div className="p-6 absolute inset-0 z-10 flex flex-col justify-end">
               <span className="font-bold text-xl text-gray-900 bg-white/90 backdrop-blur self-start px-4 py-2 rounded shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">Wood Carvings</span>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-0 pointer-events-none"></div>
           </Link>
+
           <Link href="/shop/metal" className="group rounded-xl overflow-hidden relative aspect-square bg-slate-200 block">
+            <Image src="/images/metal_engraving.png" alt="Metal Engravings" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
             <div className="p-6 absolute inset-0 z-10 flex flex-col justify-end">
               <span className="font-bold text-xl text-gray-900 bg-white/90 backdrop-blur self-start px-4 py-2 rounded shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">Metal Engravings</span>
             </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-0 pointer-events-none"></div>
           </Link>
+
           <Link href="/shop/stone" className="group rounded-xl overflow-hidden relative aspect-square bg-stone-200 block">
+            <Image src="/images/stone_marble_carving.png" alt="Stone & Marble" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
             <div className="p-6 absolute inset-0 z-10 flex flex-col justify-end">
               <span className="font-bold text-xl text-gray-900 bg-white/90 backdrop-blur self-start px-4 py-2 rounded shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">Stone & Marble</span>
             </div>
-          </Link>
-          <Link href="/shop/corporate" className="group rounded-xl overflow-hidden relative aspect-square bg-blue-50 block">
-            <div className="p-6 absolute inset-0 z-10 flex flex-col justify-end">
-              <span className="font-bold text-xl text-gray-900 bg-white/90 backdrop-blur self-start px-4 py-2 rounded shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">Corporate Gifts</span>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-0 pointer-events-none"></div>
           </Link>
         </div>
 
