@@ -32,8 +32,16 @@ export default async function HomePage() {
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center animate-fade-in-up">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 font-serif leading-tight drop-shadow-md">
-            If you need it carved, <br className="hidden md:block" /> we carve it.
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-serif leading-tight drop-shadow-md flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4">
+            <span>If you need</span>
+            <span className="flip-container h-[1.2em] overflow-hidden align-bottom relative inline-block text-left">
+              <span className="flip-box block animate-[flip-show_6s_linear_infinite]">
+                <div className="h-[1.2em] mb-[1.2em] flex items-center"><div className="bg-[#42c58a] text-white px-3 md:px-4 py-1 rounded-xl">Wood Carvings</div></div>
+                <div className="h-[1.2em] mb-[1.2em] flex items-center"><div className="bg-[#4ec7f3] text-white px-3 md:px-4 py-1 rounded-xl">Metal Engravings</div></div>
+                <div className="h-[1.2em] mb-[1.2em] flex items-center"><div className="bg-[#DC143C] text-white px-3 md:px-4 py-1 rounded-xl">Stone & Marble</div></div>
+              </span>
+            </span>
+            <span>, we carve it.</span>
           </h1>
           <p className="text-lg md:text-xl text-blue-50 mb-10 max-w-2xl font-light drop-shadow">
             From custom-engraved wooden signs to beautiful stone photo gifts, we've got the
@@ -96,31 +104,34 @@ export default async function HomePage() {
           linkUrl="/shop"
         />
 
-        {/* Ad Block (Vistaprint Style Collection Links) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          <Link href="/shop/wood" className="group rounded-xl overflow-hidden relative aspect-square bg-gray-100 block">
-            <Image src="/images/wood_carvings.png" alt="Wood Carvings" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div className="p-6 absolute inset-0 z-10 flex flex-col justify-end">
-              <span className="font-bold text-xl text-gray-900 bg-white/90 backdrop-blur self-start px-4 py-2 rounded shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">Wood Carvings</span>
+        {/* Concept Ad Block (Advanced Visuals) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 concept-wrapper">
+
+          <Link href="/shop/wood" className="concept concept-four group aspect-square block w-full !h-auto">
+            <Image src="/images/wood_carvings.png" alt="Wood Carvings" fill className="object-cover transition-transform duration-700 group-hover:scale-105 z-0" />
+            <div className="absolute inset-0 z-10 flex items-center justify-center">
+              <h1 className="text-3xl md:text-2xl lg:text-3xl">Wood.</h1>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-0 pointer-events-none"></div>
           </Link>
 
-          <Link href="/shop/metal" className="group rounded-xl overflow-hidden relative aspect-square bg-slate-200 block">
-            <Image src="/images/metal_engraving.png" alt="Metal Engravings" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div className="p-6 absolute inset-0 z-10 flex flex-col justify-end">
-              <span className="font-bold text-xl text-gray-900 bg-white/90 backdrop-blur self-start px-4 py-2 rounded shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">Metal Engravings</span>
+          <Link href="/shop/metal" className="concept concept-two group aspect-square block w-full !h-auto">
+            <Image src="/images/metal_engraving.png" alt="Metal Engravings" fill className="object-cover transition-transform duration-700 group-hover:scale-105 z-0" />
+            <div className="hover z-10 w-full h-full flex items-center justify-center">
+              <h1 className="text-3xl md:text-2xl lg:text-3xl">Metal</h1>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-0 pointer-events-none"></div>
           </Link>
 
-          <Link href="/shop/stone" className="group rounded-xl overflow-hidden relative aspect-square bg-stone-200 block">
-            <Image src="/images/stone_marble_carving.png" alt="Stone & Marble" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div className="p-6 absolute inset-0 z-10 flex flex-col justify-end">
-              <span className="font-bold text-xl text-gray-900 bg-white/90 backdrop-blur self-start px-4 py-2 rounded shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">Stone & Marble</span>
+          <Link href="/shop/stone" className="concept concept-six group aspect-square block w-full !h-auto">
+            <Image src="/images/stone_marble_carving.png" alt="Stone & Marble" fill className="object-cover transition-transform duration-700 group-hover:scale-105 z-0" />
+            <div className="word z-10 relative">
+              <span className="char">S</span>
+              <span className="char">T</span>
+              <span className="char">O</span>
+              <span className="char">N</span>
+              <span className="char">E</span>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-0 pointer-events-none"></div>
           </Link>
+
         </div>
 
         {bestselling.length > 0 && (

@@ -64,8 +64,8 @@ export default function VariantSelector({ productId, productOptions, price }: Va
                                     key={choice.description}
                                     onClick={() => handleOptionSelect(option.name, choice.description)}
                                     className={`border-2 rounded-md px-6 py-3 text-sm font-semibold transition-all ${isSelected
-                                            ? "border-blue-600 text-blue-600 bg-blue-50"
-                                            : "border-gray-200 text-gray-600 hover:border-gray-400"
+                                        ? "border-blue-600 text-blue-600 bg-blue-50"
+                                        : "border-gray-200 text-gray-600 hover:border-gray-400"
                                         }`}
                                 >
                                     {choice.description}
@@ -99,21 +99,22 @@ export default function VariantSelector({ productId, productOptions, price }: Va
             </div>
 
             <div className="pt-6">
-                <Button
-                    size="lg"
+                <button
                     onClick={handleAddToCart}
                     disabled={isLoading || justAdded}
-                    className={`w-full md:w-auto min-w-[240px] h-14 rounded-full text-lg font-bold transition-all ${justAdded ? "bg-green-600 hover:bg-green-700" : "bg-blue-600 hover:bg-blue-700 hover:shadow-lg"
-                        }`}
+                    className="magical-btn w-full md:w-auto min-w-[280px] h-16 disabled:opacity-50"
                 >
-                    {isLoading ? (
-                        "Adding..."
-                    ) : justAdded ? (
-                        <span className="flex items-center gap-2 justify-center"><Check className="w-5 h-5" /> Added to Cart</span>
-                    ) : (
-                        <span className="flex items-center gap-2 justify-center"><ShoppingCart className="w-5 h-5" /> Add to Cart</span>
-                    )}
-                </Button>
+                    <span className="btn-icons"></span>
+                    <span className="btn-text flex items-center justify-center gap-2">
+                        {isLoading ? (
+                            "Adding..."
+                        ) : justAdded ? (
+                            <><Check className="w-5 h-5" /> Added to Cart</>
+                        ) : (
+                            <><ShoppingCart className="w-5 h-5" /> Add to Cart</>
+                        )}
+                    </span>
+                </button>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-4 mt-6 flex gap-4 text-sm text-gray-600 items-start">

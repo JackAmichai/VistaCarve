@@ -29,8 +29,25 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Sign Up For Inspiration</h4>
-                        <p className="mb-4">Get exclusive offers and creative design tips delivered directly to your inbox.</p>
+                        <div className="flex items-center gap-2 mb-4">
+                            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Sign Up For Inspiration</h4>
+                            <div className="letter-image scale-[0.35] origin-left -ml-2 -mt-5 h-[100px] w-[100px]">
+                                <div className="animated-mail">
+                                    <div className="back-fold"></div>
+                                    <div className="letter">
+                                        <div className="letter-border"></div>
+                                        <div className="letter-title"></div>
+                                        <div className="letter-context"></div>
+                                        <div className="letter-stamp"></div>
+                                    </div>
+                                    <div className="top-fold"></div>
+                                    <div className="body"></div>
+                                    <div className="left-fold"></div>
+                                </div>
+                                <div className="shadow"></div>
+                            </div>
+                        </div>
+                        <p className="mb-4 mt-[-2rem]">Get exclusive offers and creative design tips delivered directly to your inbox.</p>
                         <div className="flex gap-2">
                             <input
                                 type="email"

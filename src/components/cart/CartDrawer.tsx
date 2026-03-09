@@ -27,11 +27,8 @@ export default function CartDrawer() {
                 channelType: "WEB",
             });
             if (checkoutUrl && checkoutUrl.checkoutId) {
-                // Here we'd typically bounce to the Wix headless checkout URL or a custom checkout
-                // The Wix SDK doesn't always return a direct URL for Ecom out of the box in basic setup
-                // But for redirect, if provided:
-                // window.location.href = checkoutUrl...
-                alert("Redirecting to checkout session: " + checkoutUrl.checkoutId);
+                // For demonstration, redirecting to the animated success page
+                window.location.href = "/checkout-success";
             }
         } catch (err) {
             console.error("Failed to start checkout", err);
