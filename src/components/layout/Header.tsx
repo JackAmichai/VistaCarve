@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import CartDrawer from "../cart/CartDrawer";
 
 const categories = [
+    "Websites",
     "Wood Carvings",
     "Metal Engravings",
     "Stone Carvings",
     "Corporate Gifts",
-    "Wedding Decor",
     "Custom Signage",
 ];
 
@@ -107,7 +107,7 @@ export default function Header() {
                     {categories.map((cat) => (
                         <li key={cat} className="shrink-0 h-full flex items-center">
                             <Link
-                                href={`/shop/${cat.toLowerCase().replace(" ", "-")}`}
+                                href={cat === "Websites" ? "/websites" : `/shop/${cat.toLowerCase().replace(" ", "-")}`}
                                 className="text-sm font-medium text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 border-b-2 border-transparent h-full flex items-center px-1 transition-all"
                             >
                                 {cat}
