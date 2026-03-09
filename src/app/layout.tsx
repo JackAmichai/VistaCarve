@@ -5,6 +5,7 @@ import "../styles/custom.scss";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Chatbot from "@/components/chat/Chatbot";
+import WalkMeGuide from "@/components/WalkMeGuide";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col bg-slate-50 relative`}>
+      <body className={`${inter.className} min-h-screen flex flex-col relative text-gray-100`}>
+        <WalkMeGuide />
         <Header />
-        <main className="flex-1 flex flex-col pt-0">
+        <main className="flex-1 flex flex-col pt-0 z-10">
           {children}
         </main>
         <Footer />

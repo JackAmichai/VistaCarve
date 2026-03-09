@@ -18,16 +18,16 @@ export default function ProductCard({ product }: ProductCardProps) {
     const originalPrice = product.price?.formatted?.discountedPrice;
 
     return (
-        <Card className="h-full flex flex-col border-none shadow-none bg-transparent group cursor-pointer overflow-hidden rounded-xl bg-white hover:shadow-2xl transition-all duration-500 animate-fade-in-up">
+        <Card className="h-full flex flex-col border-none shadow-none bg-transparent group cursor-pointer overflow-hidden rounded-xl glass-card hover:shadow-2xl transition-all duration-500 animate-fade-in-up">
             <Link href={`/product/${product.slug}`} className="flex-1 flex flex-col">
                 {/* Image Stage */}
-                <div className="relative w-full aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden mb-4 border border-gray-100/50">
+                <div className="relative w-full aspect-[4/3] bg-black/20 rounded-xl overflow-hidden mb-2 border-b border-white/10">
                     {primaryImage ? (
                         <Image
                             src={primaryImage}
                             alt={product.name || "Product image"}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform mix-blend-multiply"
+                            className="object-cover group-hover:scale-105 transition-transform duration-700 will-change-transform"
                         />
                     ) : (
                         <div className="absolute inset-0 flex items-center justify-center text-gray-400">
@@ -43,22 +43,22 @@ export default function ProductCard({ product }: ProductCardProps) {
                 </div>
 
                 {/* Content */}
-                <CardContent className="p-0 flex-1">
-                    <h3 className="font-semibold text-gray-900 line-clamp-2 text-lg group-hover:text-blue-600 transition-colors">
+                <CardContent className="p-0 flex-1 px-5 pt-3">
+                    <h3 className="font-semibold text-white line-clamp-2 text-lg group-hover:text-blue-300 transition-colors drop-shadow-sm">
                         {product.name}
                     </h3>
                 </CardContent>
 
-                <CardFooter className="p-0 mt-3 pt-3 flex flex-col items-start gap-1">
+                <CardFooter className="p-0 mt-3 pt-3 pb-5 px-5 flex flex-col items-start gap-1">
                     {isSale ? (
                         <div className="flex gap-2 items-center">
-                            <span className="font-bold text-red-600 text-lg">{price}</span>
-                            <span className="text-sm text-gray-400 line-through">{originalPrice}</span>
+                            <span className="font-bold text-red-400 text-lg drop-shadow-sm">{price}</span>
+                            <span className="text-sm text-gray-400 line-through opacity-70">{originalPrice}</span>
                         </div>
                     ) : (
-                        <span className="font-bold text-gray-900 text-lg">{price}</span>
+                        <span className="font-bold text-white text-lg drop-shadow-sm">{price}</span>
                     )}
-                    <span className="text-xs text-gray-500">Includes basic material</span>
+                    <span className="text-xs text-gray-300 opacity-80 mt-1">Includes basic material</span>
                 </CardFooter>
             </Link>
         </Card>

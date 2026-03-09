@@ -76,6 +76,32 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-white;
+    background-image: linear-gradient(rgba(20, 15, 10, 0.85), rgba(10, 5, 0, 0.95)), url('/images/dark_wood_texture.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card {
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
   }
 }

@@ -1,15 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { MessageCircle, X, Send } from "lucide-react";
 
 export default function Chatbot() {
     const [isOpen, setIsOpen] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
     const [messages, setMessages] = useState<{ role: "bot" | "user"; text: string }[]>([
         { role: "bot", text: "Hi there! Welcome to VistaCarve. Unsure which material to carve your gift in? I can help!" },
     ]);
     const [input, setInput] = useState("");
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (!isOpen) setShowPopup(true);
+        }, 3500);
+
+        const hideTimer = setTimeout(() => {
+            setShowPopup(false);
+        }, 12000);
+
+        return () => { clearTimeout(timer); clearTimeout(hideTimer); };
+    }, [isOpen]);
 
     const handleSend = () => {
         if (!input.trim()) return;
@@ -33,19 +46,33 @@ export default function Chatbot() {
         <>
             {/* Floating Button Bubble */}
             {!isOpen && (
-                <button
-                    onClick={() => setIsOpen(true)}
-                    className="fixed bottom-6 right-6 w-16 h-16 bg-blue-600 rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center justify-center z-50 overflow-hidden border-4 border-white"
-                    aria-label="Open Chat"
-                >
-                    <div className="relative w-full h-full p-2 bg-white">
-                        <Image src="/images/logo.png" alt="Chat" fill className="object-contain p-2" />
-                    </div>
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-4 w-4 bg-accent border-2 border-white"></span>
-                    </span>
-                </button>
+                <div className="fixed bottom-6 right-6 z-50 flex items-end gap-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    {/* Tooltip Popup */}
+                    {showPopup && (
+                        <div className="relative bg-white text-gray-800 text-sm font-medium px-4 py-3 rounded-2xl shadow-xl border border-gray-100 mb-2 animate-in fade-in zoom-in slide-in-from-right-2 duration-300">
+                            Need help? I'm here! 👋
+                            <button onClick={() => setShowPopup(false)} className="absolute -top-2 -left-2 bg-gray-200 hover:bg-gray-300 text-gray-600 rounded-full p-1 transition-colors">
+                                <X className="w-3 h-3" />
+                            </button>
+                            {/* Speech Bubble Arrow */}
+                            <div className="absolute right-[-6px] bottom-3 w-3 h-3 bg-white border-t border-r border-gray-100 transform rotate-45"></div>
+                        </div>
+                    )}
+
+                    <button
+                        onClick={() => { setIsOpen(true); setShowPopup(false); }}
+                        className="w-16 h-16 bg-blue-600 rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center justify-center overflow-hidden border-4 border-white shrink-0"
+                        aria-label="Open Chat"
+                    >
+                        <div className="relative w-full h-full p-2 bg-white">
+                            <Image src="/images/logo.png" alt="Chat" fill className="object-contain p-2" />
+                        </div>
+                        <span className="absolute -top-1 -right-1 flex h-4 w-4">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-4 w-4 bg-accent border-2 border-white"></span>
+                        </span>
+                    </button>
+                </div>
             )}
 
             {/* Chat Window */}
@@ -77,8 +104,8 @@ export default function Chatbot() {
                             <div
                                 key={idx}
                                 className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === "user"
-                                        ? "bg-blue-600 text-white self-end rounded-tr-sm"
-                                        : "bg-white border border-gray-200 text-gray-800 self-start rounded-tl-sm shadow-sm"
+                                    ? "bg-blue-600 text-white self-end rounded-tr-sm"
+                                    : "bg-white border border-gray-200 text-gray-800 self-start rounded-tl-sm shadow-sm"
                                     }`}
                             >
                                 {msg.text}
