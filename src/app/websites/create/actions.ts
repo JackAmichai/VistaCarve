@@ -1,41 +1,59 @@
 "use server";
 
+import { getWixAccessToken } from "@/lib/wix-oauth";
+
 /**
  * Server Action to handle Wix Site Provisioning.
- * In a real-world scenario, you would use your Wix App Secret and the 
- * Provisioning API here.
+ * Uses the real Wix Site Management API to create a new site.
  */
 export async function provisionWixSite(businessName: string, siteType: string) {
     try {
         console.log(`[Wix Provisioning] Starting for: ${businessName} (${siteType})`);
 
-        // 1. Mock the API Call to Wix Provisioning
-        // Real URL: POST https://www.wixapis.com/provisioning/v1/sites
-        // This requires an Authorization header with a JWT or API Key.
-        
-        await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate API latency
+        // 1. Generate an OAuth Access Token dynamically
+        const wixAccessToken = await getWixAccessToken();
 
-        const mockSiteId = `site-${Math.random().toString(36).substring(2, 9)}`;
-        console.log(`[Wix Provisioning] Site created successfully: ${mockSiteId}`);
+        // 2. Call the Wix API to create the site
+        // Using Site Management API: POST https://www.wixapis.com/site-management/v1/sites
+        const response = await fetch("https://www.wixapis.com/site-management/v1/sites", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${wixAccessToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                site: {
+                    displayName: businessName,
+                    // You can map siteType to a specific templateId if needed
+                    // templateId: siteType === "store" ? "..." : "...",
+                },
+            }),
+        });
 
-        // 2. Mock generating an SSO (Single Sign-On) link for the user
-        // Real URL: POST https://www.wixapis.com/provisioning/v1/sso/login
-        // This allows the user to be automatically logged into their new site dashboard.
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("[Wix API Error]:", response.status, errorText);
+            throw new Error(`Failed to provision site: ${response.statusText}`);
+        }
 
-        // For this demo, we'll return a deep link to a Wix Dashboard
-        // In production, this would be a unique SSO URL from Wix.
-        const dashboardUrl = `https://manage.wix.com/dashboard/${mockSiteId}/home?referralInfo=vistacarve`;
+        const data = await response.json();
+        const siteId = data.site.id;
+
+        console.log(`[Wix Provisioning] Site created successfully: ${siteId}`);
+
+        // 3. Generate the direct dashboard link
+        const dashboardUrl = `https://manage.wix.com/dashboard/${siteId}`;
 
         return {
             success: true,
-            siteId: mockSiteId,
+            siteId: siteId,
             dashboardUrl: dashboardUrl,
         };
     } catch (error) {
         console.error("[Wix Provisioning] Error:", error);
         return {
             success: false,
-            error: "Failed to provision site. Check your Wix API credentials.",
+            error: error instanceof Error ? error.message : "Internal Server Error",
         };
     }
 }
