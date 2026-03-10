@@ -36,6 +36,45 @@ export default async function CategoryPage({ params }: { params: { category: str
             products = [
                 { _id: "w1", name: "Jesus Wedding Carving", priceData: { formatted: { price: "$89.99", discountedPrice: "$89.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Jesus wedding.png" } } }, ribbon: "New", slug: "jesus-wedding-carving" },
                 { _id: "w2", name: "Stone and Marble Maria", priceData: { formatted: { price: "$159.99", discountedPrice: "$159.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Stone and marbel maria.png" } } }, slug: "stone-marble-maria" },
+                { _id: "w3", name: "Chupa Metal Decor", priceData: { formatted: { price: "$199.99", discountedPrice: "$199.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Chupa metal.png" } } }, slug: "chupa-metal-decor" },
+                { _id: "w4", name: "Family Wedding Photo", priceData: { formatted: { price: "$79.99", discountedPrice: "$79.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Family wedding metal photo.png" } } }, slug: "family-wedding-photo" },
+                { _id: "w5", name: "Bridesmaids Metal Gift", priceData: { formatted: { price: "$49.99", discountedPrice: "$49.99" } }, media: { mainMedia: { image: { url: "/images/wedding/bridemaids metal.png" } } }, slug: "bridesmaids-metal-gift" },
+            ];
+        } else if (category === "wood") {
+            collection = {
+                _id: "mock-wood",
+                name: "Wood Carvings",
+                description: "Warm, natural, and timeless wood carvings for your home.",
+            };
+            products = [
+                { _id: "wd1", name: "Caribbean Islands Wood", priceData: { formatted: { price: "$69.99", discountedPrice: "$69.99" } }, media: { mainMedia: { image: { url: "/images/wood/carribian islands wood.png" } } }, ribbon: "New", slug: "caribbean-islands-wood" },
+                { _id: "wd2", name: "Elephant Wood Floor", priceData: { formatted: { price: "$149.99", discountedPrice: "$149.99" } }, media: { mainMedia: { image: { url: "/images/wood/elephant wood floor.png" } } }, slug: "elephant-wood-floor" },
+                { _id: "wd3", name: "Sea Board Wood", priceData: { formatted: { price: "$89.99", discountedPrice: "$89.99" } }, media: { mainMedia: { image: { url: "/images/wood/sea board wood.png" } } }, slug: "sea-board-wood" },
+            ];
+        } else if (category === "metal") {
+            collection = {
+                _id: "mock-metal",
+                name: "Metal Engravings",
+                description: "Sleek and modern metal engravings with industrial precision.",
+            };
+            products = [
+                { _id: "mt1", name: "Metal Lizzard", priceData: { formatted: { price: "$59.99", discountedPrice: "$59.99" } }, media: { mainMedia: { image: { url: "/images/metal/Lizzard.png" } } }, ribbon: "New", slug: "metal-lizzard" },
+                { _id: "mt2", name: "Metal Cat Sculpture", priceData: { formatted: { price: "$49.99", discountedPrice: "$49.99" } }, media: { mainMedia: { image: { url: "/images/metal/Metal cat.png" } } }, slug: "metal-cat-sculpture" },
+                { _id: "mt3", name: "Dog Metal Plaque", priceData: { formatted: { price: "$39.99", discountedPrice: "$39.99" } }, media: { mainMedia: { image: { url: "/images/metal/dog metal.png" } } }, slug: "dog-metal-plaque" },
+                { _id: "mt4", name: "Feast Metal Plate", priceData: { formatted: { price: "$129.99", discountedPrice: "$129.99" } }, media: { mainMedia: { image: { url: "/images/metal/feast metal plate.png" } } }, slug: "feast-metal-plate" },
+            ];
+        } else if (category === "marble" || category === "stone") {
+            collection = {
+                _id: "mock-marble",
+                name: "Marble & Stone",
+                description: "Elegant and durable carvings in natural stone and premium marble.",
+            };
+            products = [
+                { _id: "mb1", name: "Greek Marble Statue", priceData: { formatted: { price: "$189.99", discountedPrice: "$189.99" } }, media: { mainMedia: { image: { url: "/images/marble/Greek marbel.png" } } }, ribbon: "Premium", slug: "greek-marble-statue" },
+                { _id: "mb2", name: "Roman Pillars Plaque", priceData: { formatted: { price: "$159.99", discountedPrice: "$159.99" } }, media: { mainMedia: { image: { url: "/images/marble/Roman pillars.png" } } }, slug: "roman-pillars-plaque" },
+                { _id: "mb3", name: "Orchestra Marble Carving", priceData: { formatted: { price: "$219.99", discountedPrice: "$219.99" } }, media: { mainMedia: { image: { url: "/images/marble/orchestra marbel.png" } } }, slug: "orchestra-marble-carving" },
+                { _id: "mb4", name: "Piano Stone Carved", priceData: { formatted: { price: "$249.99", discountedPrice: "$249.99" } }, media: { mainMedia: { image: { url: "/images/marble/piano stone carved.png" } } }, slug: "piano-stone-carved" },
+                { _id: "mb5", name: "Stone Violin (Hebrew: כינור אבן)", priceData: { formatted: { price: "$179.99", discountedPrice: "$179.99" } }, media: { mainMedia: { image: { url: "/images/marble/כינור אבן.png" } } }, slug: "stone-violin" },
             ];
         } else {
             // 2. Fetch collection by slug from Wix
