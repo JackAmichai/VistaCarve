@@ -30,7 +30,7 @@ export default async function HomePage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="bg-primary text-white pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden shadow-2xl transition-all"
+        className="bg-white/80 backdrop-blur-md text-gray-900 pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden shadow-xl border border-white/40 transition-all"
       >
         {/* Decorative background elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none mix-blend-overlay">
@@ -38,7 +38,7 @@ export default async function HomePage() {
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-serif leading-tight drop-shadow-md flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-serif leading-tight text-gray-900 flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4">
             <span>If you need</span>
             <span className="flip-container h-[1.2em] overflow-hidden align-bottom relative inline-block text-left">
               <span className="flip-box block animate-[flip-show_6s_linear_infinite]">
@@ -49,7 +49,7 @@ export default async function HomePage() {
             </span>
             <span>, we carve it.</span>
           </h1>
-          <p className="text-lg md:text-xl text-blue-50 mb-10 max-w-2xl font-light drop-shadow">
+          <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl font-medium drop-shadow-sm">
             From custom-engraved wooden signs to beautiful stone photo gifts, we've got the
             perfect piece for you. Explore our top materials starting at just $29.
           </p>
@@ -82,8 +82,8 @@ export default async function HomePage() {
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
             </div>
             <div>
-              <h4 className="font-bold text-white text-lg">Products you'll love</h4>
-              <p className="text-sm text-gray-300">The right materials at great prices</p>
+              <h4 className="font-bold text-gray-900 text-lg">Products you'll love</h4>
+              <p className="text-sm text-gray-600 font-medium">The right materials at great prices</p>
             </div>
           </div>
           <div className="flex items-center gap-4 justify-center md:justify-start group cursor-default">
@@ -91,8 +91,8 @@ export default async function HomePage() {
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
             </div>
             <div>
-              <h4 className="font-bold text-white text-lg">Free Design Maker</h4>
-              <p className="text-sm text-gray-300">Get your custom carving in minutes</p>
+              <h4 className="font-bold text-gray-900 text-lg">Free Design Maker</h4>
+              <p className="text-sm text-gray-600 font-medium">Get your custom carving in minutes</p>
             </div>
           </div>
           <div className="flex items-center gap-4 justify-center md:justify-start group cursor-default">
@@ -100,8 +100,8 @@ export default async function HomePage() {
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
             </div>
             <div>
-              <h4 className="font-bold text-white text-lg">Help when you need it</h4>
-              <p className="text-sm text-gray-300">Live chat with us or take a tour</p>
+              <h4 className="font-bold text-gray-900 text-lg">Help when you need it</h4>
+              <p className="text-sm text-gray-600 font-medium">Live chat with us or take a tour</p>
             </div>
           </div>
         </div>

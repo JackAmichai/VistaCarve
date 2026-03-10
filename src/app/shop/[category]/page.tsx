@@ -115,7 +115,7 @@ export default async function CategoryPage({ params }: { params: { category: str
         <div className="flex flex-col min-h-screen">
             {/* Breadcrumbs */}
             <div className="bg-gray-100 py-3 px-4 md:px-8 border-b border-gray-200">
-                <div className="container mx-auto flex items-center gap-2 text-xs text-gray-600 font-medium">
+                <div className="container mx-auto flex items-center gap-2 text-xs text-gray-800 font-bold">
                     <Link href="/" className="hover:text-blue-600">Home</Link>
                     <ChevronRight className="w-3 h-3" />
                     <Link href="/shop" className="hover:text-blue-600">Shop</Link>
@@ -135,7 +135,7 @@ export default async function CategoryPage({ params }: { params: { category: str
                         <div className="space-y-6">
                             <div>
                                 <h3 className="font-semibold mb-3 text-sm uppercase tracking-wider text-gray-500">Material Type</h3>
-                                <ul className="space-y-2 text-sm text-gray-700 font-medium">
+                                <ul className="space-y-2 text-sm text-gray-800 font-bold">
                                     <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Oak</label></li>
                                     <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Walnut</label></li>
                                     <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Cherry</label></li>
@@ -143,7 +143,7 @@ export default async function CategoryPage({ params }: { params: { category: str
                             </div>
                             <div className="border-t pt-6">
                                 <h3 className="font-semibold mb-3 text-sm uppercase tracking-wider text-gray-500">Size</h3>
-                                <ul className="space-y-2 text-sm text-gray-700 font-medium">
+                                <ul className="space-y-2 text-sm text-gray-800 font-bold">
                                     <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Small (5"-10")</label></li>
                                     <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Medium (11"-20")</label></li>
                                     <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Large (20"+)</label></li>
@@ -159,7 +159,7 @@ export default async function CategoryPage({ params }: { params: { category: str
                         <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-3">{collection.name}</h1>
                         {collection.description && (
                             <div
-                                className="text-gray-600 max-w-3xl leading-relaxed"
+                                className="text-gray-800 max-w-3xl leading-relaxed font-medium"
                                 dangerouslySetInnerHTML={{ __html: collection.description }}
                             />
                         )}
