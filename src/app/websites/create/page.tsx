@@ -36,7 +36,7 @@ export default function CreateWebsiteWizard() {
                     setStep(4);
                 }, 500);
             } else {
-                alert("Provisioning failed. See console.");
+                alert(`Provisioning failed: ${result.error || "Unknown server error"}. Please verify your Wix App ID and Secret are correct and published.`);
                 setStep(2);
                 clearInterval(interval);
             }
