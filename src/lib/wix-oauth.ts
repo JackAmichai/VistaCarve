@@ -4,11 +4,11 @@
  */
 
 export async function getWixAccessToken() {
-    const appId = process.env.NEXT_PUBLIC_WIX_APP_ID;
+    const appId = process.env.NEXT_PUBLIC_WIX_APP_ID || process.env.NEXT_PUBLIC_WIX_CLIENT_ID || process.env.WIX_APP_ID;
     const appSecret = process.env.WIX_APP_SECRET;
 
     if (!appId || !appSecret) {
-        throw new Error("Missing NEXT_PUBLIC_WIX_APP_ID or WIX_APP_SECRET in environment variables");
+        throw new Error("Missing Wix App ID or Secret in environment variables (check NEXT_PUBLIC_WIX_APP_ID and WIX_APP_SECRET)");
     }
 
     try {

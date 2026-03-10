@@ -47,7 +47,7 @@ export default async function HomePage() {
                 <div className="h-[1.2em] mb-[1.2em] flex items-center"><div className="bg-[#DC143C] text-white px-3 md:px-4 py-1 rounded-xl">Stone & Marble</div></div>
               </span>
             </span>
-            <span>, we carve it.</span>
+            <span> we carve it.</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl font-medium drop-shadow-sm">
             From custom-engraved wooden signs to beautiful stone photo gifts, we've got the
