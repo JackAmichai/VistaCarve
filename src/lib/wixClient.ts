@@ -3,6 +3,17 @@ import { products, collections } from "@wix/stores";
 import { currentCart } from "@wix/ecom";
 import Cookies from "js-cookie";
 
+const clientId = process.env.NEXT_PUBLIC_WIX_CLIENT_ID;
+const siteId = process.env.NEXT_PUBLIC_WIX_SITE_ID;
+
+if (!clientId) {
+  console.error("CRITICAL: NEXT_PUBLIC_WIX_CLIENT_ID is missing from environment variables!");
+}
+
+if (siteId) {
+  console.log(`[Wix Client] Initializing for Site ID: ${siteId}`);
+}
+
 const wixClient = createClient({
   modules: {
     products,
@@ -10,7 +21,7 @@ const wixClient = createClient({
     currentCart,
   },
   auth: OAuthStrategy({
-    clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID || "",
+    clientId: clientId || "",
   }),
 });
 
