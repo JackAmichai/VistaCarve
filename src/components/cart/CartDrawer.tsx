@@ -23,12 +23,32 @@ export default function CartDrawer() {
 
     const handleCheckout = async () => {
         try {
-            const checkoutUrl = await wixClient.currentCart.createCheckoutFromCurrentCart({
+            // 1. Create a checkout ID from the current cart
+            const checkoutUrlObj = await wixClient.currentCart.createCheckoutFromCurrentCart({
                 channelType: "WEB",
             });
-            if (checkoutUrl && checkoutUrl.checkoutId) {
-                // For demonstration, redirecting to the animated success page
-                window.location.href = "/checkout-success";
+
+            if (checkoutUrlObj && checkoutUrlObj.checkoutId) {
+                // 2. Obtain the secure hosted checkout URL
+                const redirectSession = await wixClient.redirects.createRedirectSession({
+                    ecomCheckout: {
+                        checkoutId: checkoutUrlObj.checkoutId
+                    },
+                    callbacks: {
+                        postFlowUrl: window.location.origin + "/checkout-success"
+                    }
+                });
+
+                // 3. Navigate the user to Wix Payments
+                if (redirectSession?.redirectSession?.fullUrl) {
+                    window.location.href = redirectSession.redirectSession.fullUrl;
+                } else {
+                    console.error("No fullUrl found in redirectSession", redirectSession);
+                    alert("Failed to generate secure checkout link.");
+                }
+            } else {
+                console.error("No checkoutId found", checkoutUrlObj);
+                alert("Failed to initialize checkout.");
             }
         } catch (err) {
             console.error("Failed to start checkout", err);
