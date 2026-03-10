@@ -40,7 +40,7 @@ export default async function CategoryPage({ params }: { params: { category: str
                 { _id: "w4", name: "Family Wedding Photo", priceData: { formatted: { price: "$79.99", discountedPrice: "$79.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Family wedding metal photo.png" } } }, slug: "family-wedding-photo" },
                 { _id: "w5", name: "Bridesmaids Metal Gift", priceData: { formatted: { price: "$49.99", discountedPrice: "$49.99" } }, media: { mainMedia: { image: { url: "/images/wedding/bridemaids metal.png" } } }, slug: "bridesmaids-metal-gift" },
             ];
-        } else if (category === "wood") {
+        } else if (category === "wood" || category === "wood-carvings") {
             collection = {
                 _id: "mock-wood",
                 name: "Wood Carvings",
@@ -51,7 +51,7 @@ export default async function CategoryPage({ params }: { params: { category: str
                 { _id: "wd2", name: "Elephant Wood Floor", priceData: { formatted: { price: "$149.99", discountedPrice: "$149.99" } }, media: { mainMedia: { image: { url: "/images/wood/elephant wood floor.png" } } }, slug: "elephant-wood-floor" },
                 { _id: "wd3", name: "Sea Board Wood", priceData: { formatted: { price: "$89.99", discountedPrice: "$89.99" } }, media: { mainMedia: { image: { url: "/images/wood/sea board wood.png" } } }, slug: "sea-board-wood" },
             ];
-        } else if (category === "metal") {
+        } else if (category === "metal" || category === "metal-engravings") {
             collection = {
                 _id: "mock-metal",
                 name: "Metal Engravings",
@@ -63,7 +63,7 @@ export default async function CategoryPage({ params }: { params: { category: str
                 { _id: "mt3", name: "Dog Metal Plaque", priceData: { formatted: { price: "$39.99", discountedPrice: "$39.99" } }, media: { mainMedia: { image: { url: "/images/metal/dog metal.png" } } }, slug: "dog-metal-plaque" },
                 { _id: "mt4", name: "Feast Metal Plate", priceData: { formatted: { price: "$129.99", discountedPrice: "$129.99" } }, media: { mainMedia: { image: { url: "/images/metal/feast metal plate.png" } } }, slug: "feast-metal-plate" },
             ];
-        } else if (category === "marble" || category === "stone") {
+        } else if (category === "marble" || category === "stone" || category === "stone-carvings") {
             collection = {
                 _id: "mock-marble",
                 name: "Marble & Stone",
