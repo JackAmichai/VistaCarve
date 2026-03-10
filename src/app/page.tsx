@@ -204,7 +204,7 @@ export default async function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6">
               <div className="glass-panel p-4 rounded-xl border border-white/20">
-                <p className="text-white font-serif text-lg italic text-center">"Every carve tells a story. Let us help you tell yours."</p>
+                <p className="text-black font-serif text-lg italic text-center">"Every carve tells a story. Let us help you tell yours."</p>
               </div>
             </div>
           </div>

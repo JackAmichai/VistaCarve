@@ -61,11 +61,11 @@ export default function Chatbot() {
 
                     <button
                         onClick={() => { setIsOpen(true); setShowPopup(false); }}
-                        className="w-40 h-40 hover:scale-105 transition-transform flex items-center justify-center shrink-0 relative drop-shadow-2xl"
+                        className="w-40 h-40 hover:scale-105 transition-transform flex items-center justify-center shrink-0 relative"
                         aria-label="Open Chat"
                     >
-                        <div className="relative w-full h-full">
-                            <Image src="/images/new_logo.png" alt="Chat" fill className="object-contain scale-[1.3]" />
+                        <div className="relative w-full h-full mix-blend-multiply drop-shadow-2xl">
+                            <Image src="/images/new_logo.png" alt="Chat" fill className="object-cover object-center scale-[1.5]" />
                         </div>
                         <span className="absolute top-4 right-4 flex h-6 w-6 z-10">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>

@@ -62,15 +62,15 @@ export default function CreateWebsiteWizard() {
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-12">
                     <svg viewBox="0 0 100 100" className="w-6 h-6 text-black fill-current"><path d="M50 0 L100 50 L50 100 L0 50 Z" /></svg>
-                    <span className="text-xl font-bold tracking-tight text-gray-900 font-serif">vistacarve <span className="text-blue-600 mx-1">x</span> wix</span>
+                    <span className="text-xl font-bold tracking-tight text-black font-serif">vistacarve <span className="text-blue-600 mx-1">x</span> wix</span>
                 </div>
 
                 {/* STEP 1: Site Type */}
                 {step === 1 && (
                     <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-2">What kind of website do you need?</h2>
-                            <p className="text-gray-500">This helps us pre-configure your Wix editor with the right templates and apps.</p>
+                            <h2 className="text-3xl font-bold text-black mb-2">What kind of website do you need?</h2>
+                            <p className="text-black">This helps us pre-configure your Wix editor with the right templates and apps.</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -84,13 +84,13 @@ export default function CreateWebsiteWizard() {
                                     key={type.id}
                                     onClick={() => setSiteType(type.id)}
                                     className={`text-left p-6 rounded-2xl border-2 transition-all ${siteType === type.id
-                                            ? "border-blue-600 bg-blue-50"
-                                            : "border-gray-200 hover:border-gray-300 bg-white"
+                                        ? "border-blue-600 bg-blue-50"
+                                        : "border-gray-200 hover:border-gray-300 bg-white"
                                         }`}
                                 >
-                                    <type.icon className={`w-8 h-8 mb-4 ${siteType === type.id ? "text-blue-600" : "text-gray-600"}`} />
-                                    <h3 className="font-bold text-gray-900 text-lg">{type.label}</h3>
-                                    <p className="text-sm text-gray-500 mt-1">{type.desc}</p>
+                                    <type.icon className={`w-8 h-8 mb-4 ${siteType === type.id ? "text-blue-600" : "text-black"}`} />
+                                    <h3 className="font-bold text-black text-lg">{type.label}</h3>
+                                    <p className="text-sm text-black mt-1">{type.desc}</p>
                                 </button>
                             ))}
                         </div>
@@ -110,12 +110,12 @@ export default function CreateWebsiteWizard() {
                 {/* STEP 2: Business Name */}
                 {step === 2 && (
                     <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
-                        <button onClick={() => setStep(1)} className="text-sm font-bold text-gray-500 hover:text-black transition-colors flex items-center gap-1 mb-8">
+                        <button onClick={() => setStep(1)} className="text-sm font-bold text-black hover:text-black transition-colors flex items-center gap-1 mb-8">
                             &larr; Back
                         </button>
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-2">What&apos;s the name of your business?</h2>
-                            <p className="text-gray-500">Don&apos;t worry, you can change this later in the Wix Editor.</p>
+                            <h2 className="text-3xl font-bold text-black mb-2">What&apos;s the name of your business?</h2>
+                            <p className="text-black">Don&apos;t worry, you can change this later in the Wix Editor.</p>
                         </div>
 
                         <Input
@@ -148,8 +148,8 @@ export default function CreateWebsiteWizard() {
                             </svg>
                             <span className="absolute font-bold text-2xl text-blue-900">{provisionProgress}%</span>
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">Deploying your Wix site...</h2>
-                        <p className="text-gray-500 text-lg">
+                        <h2 className="text-3xl font-bold text-black mb-2">Deploying your Wix site...</h2>
+                        <p className="text-black text-lg">
                             {provisionProgress < 30 && "Initializing site structure..."}
                             {provisionProgress >= 30 && provisionProgress < 60 && `Adding apps for a ${siteType}...`}
                             {provisionProgress >= 60 && provisionProgress < 90 && `Applying brand name "${businessName}"...`}
@@ -164,8 +164,8 @@ export default function CreateWebsiteWizard() {
                         <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
                             <svg fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-12 h-12"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 font-serif">Your site is ready!</h2>
-                        <p className="text-xl text-gray-600 max-w-lg mx-auto mb-10">
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-4 font-serif">Your site is ready!</h2>
+                        <p className="text-xl text-black max-w-lg mx-auto mb-10">
                             We&apos;ve created a new Wix backend for <strong className="text-black">{businessName}</strong>. You can now access the Editor to design your pages and manage your products.
                         </p>
 
@@ -175,7 +175,7 @@ export default function CreateWebsiteWizard() {
                                     Go to Wix Dashboard
                                 </Button>
                             </Link>
-                            <Button variant="outline" onClick={() => setStep(1)} className="w-full rounded-full h-14 text-lg font-bold text-gray-600 bg-transparent border-gray-300">
+                            <Button variant="outline" onClick={() => setStep(1)} className="w-full rounded-full h-14 text-lg font-bold text-black bg-transparent border-gray-300">
                                 Create Another Site
                             </Button>
                         </div>
