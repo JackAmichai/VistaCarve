@@ -12,22 +12,23 @@ export async function getWixAccessToken() {
     }
 
     try {
+        const params = new URLSearchParams();
+        params.append("grant_type", "client_credentials");
+        params.append("client_id", appId);
+        params.append("client_secret", appSecret);
+
         const response = await fetch("https://www.wixapis.com/oauth2/token", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: JSON.stringify({
-                grantType: "client_credentials",
-                clientId: appId,
-                clientSecret: appSecret,
-            }),
+            body: params.toString(),
         });
 
         if (!response.ok) {
-            const error = await response.text();
-            console.error("[Wix OAuth] Token generation failed:", response.status, error);
-            throw new Error("Failed to generate Wix Access Token");
+            const errorText = await response.text();
+            console.error("[Wix OAuth] Token generation failed:", response.status, errorText);
+            throw new Error(`Wix Auth Error (${response.status}): ${errorText || "Failed to generate access token"}`);
         }
 
         const data = await response.json();
