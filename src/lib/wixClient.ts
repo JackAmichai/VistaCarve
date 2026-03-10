@@ -3,6 +3,7 @@ import { products, collections } from "@wix/stores";
 import { currentCart } from "@wix/ecom";
 import { redirects } from "@wix/redirects";
 import { members } from "@wix/members";
+import { reviews } from "@wix/reviews";
 import Cookies from "js-cookie";
 
 const clientId = process.env.NEXT_PUBLIC_WIX_APP_ID || process.env.NEXT_PUBLIC_WIX_CLIENT_ID;
@@ -23,6 +24,7 @@ const wixClient = createClient({
     currentCart,
     redirects,
     members,
+    reviews,
   },
   auth: OAuthStrategy({
     clientId: clientId || "MISSING_CLIENT_ID",

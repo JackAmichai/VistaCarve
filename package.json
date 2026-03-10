@@ -16,6 +16,7 @@
     "@wix/ecom": "^1.0.1949",
     "@wix/members": "^1.0.432",
     "@wix/redirects": "^1.0.112",
+    "@wix/reviews": "^1.0.105",
     "@wix/sdk": "^1.21.3",
     "@wix/stores": "^1.0.706",
     "class-variance-authority": "^0.7.1",

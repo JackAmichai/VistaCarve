@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronRight, Package, LayoutTemplate, BookOpen, Ruler } from "lucide-react";
 import VariantSelector from "@/components/product/VariantSelector";
 import ProductCarousel from "@/components/product/ProductCarousel";
+import ProductReviews from "@/components/product/ProductReviews";
 
 // Revalidate product pages
 export const revalidate = 60;
@@ -153,6 +154,11 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         </div>
                     </div>
                 </div>
+
+                {/* Product Reviews Section */}
+                {product._id && (
+                    <ProductReviews productId={product._id} />
+                )}
             </div>
 
             {/* Recommended Products Carousel */}
