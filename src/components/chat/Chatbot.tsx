@@ -64,8 +64,8 @@ export default function Chatbot() {
                         className="w-16 h-16 bg-blue-600 rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center justify-center overflow-hidden border-4 border-white shrink-0"
                         aria-label="Open Chat"
                     >
-                        <div className="relative w-full h-full p-2 bg-white">
-                            <Image src="/images/logo.png" alt="Chat" fill className="object-contain p-2" />
+                        <div className="relative w-full h-full p-1 bg-white">
+                            <Image src="/images/new_logo.png" alt="Chat" fill className="object-contain p-1 rounded-full" />
                         </div>
                         <span className="absolute -top-1 -right-1 flex h-4 w-4">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
@@ -83,7 +83,7 @@ export default function Chatbot() {
                     <div className="bg-blue-600 p-4 flex items-center justify-between text-white">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-white relative overflow-hidden flex items-center justify-center">
-                                <Image src="/images/logo.png" alt="VistaCarve" fill className="object-cover" />
+                                <Image src="/images/new_logo.png" alt="VistaCarve" fill className="object-contain p-1" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-sm leading-tight">VistaCarve Support</h3>

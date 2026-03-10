@@ -6,6 +6,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Chatbot from "@/components/chat/Chatbot";
 import WalkMeGuide from "@/components/WalkMeGuide";
+import ParticlesBackground from "@/components/ui/ParticlesBackground";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen flex flex-col relative text-gray-100`}>
+        <CustomCursor />
+        <ParticlesBackground />
         <WalkMeGuide />
         <Header />
         <main className="flex-1 flex flex-col pt-0 z-10">
