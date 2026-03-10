@@ -113,14 +113,14 @@ export default function Header() {
                         <Paintbrush className="w-6 h-6 mb-1 text-primary group-hover:text-blue-600" />
                         <span className="text-[10px] uppercase font-bold tracking-wider">Design Maker</span>
                     </Link>
-                    <div className="hidden lg:flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors group">
+                    <Link href="/consultation" className="hidden lg:flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors group">
                         <MessageCircleQuestion className="w-6 h-6 mb-1 text-gray-600 group-hover:text-blue-600" />
-                        <span className="text-[10px] uppercase font-bold tracking-wider">Help</span>
-                    </div>
-                    <div className="hidden lg:flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors group">
+                        <span className="text-[10px] uppercase font-bold tracking-wider">Consultation</span>
+                    </Link>
+                    <Link href="/portfolio" className="hidden lg:flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors group">
                         <Folder className="w-6 h-6 mb-1 text-gray-600 group-hover:text-blue-600" />
-                        <span className="text-[10px] uppercase font-bold tracking-wider">Projects</span>
-                    </div>
+                        <span className="text-[10px] uppercase font-bold tracking-wider">Portfolio</span>
+                    </Link>
                     {mounted && (
                         (() => {
                             let isLoggedIn = false;

@@ -14,6 +14,7 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
     "@wix/bookings": "^1.0.1319",
+    "@wix/data": "^1.0.416",
     "@wix/ecom": "^1.0.1949",
     "@wix/members": "^1.0.432",
     "@wix/redirects": "^1.0.112",
