@@ -121,13 +121,38 @@ export default function Header() {
                         <Folder className="w-6 h-6 mb-1 text-gray-600 group-hover:text-blue-600" />
                         <span className="text-[10px] uppercase font-bold tracking-wider">Projects</span>
                     </div>
-                    <div
-                        onClick={() => setIsSignInModalOpen(true)}
-                        className="hidden md:flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors group"
-                    >
-                        <User className="w-6 h-6 mb-1 text-gray-600 group-hover:text-blue-600" />
-                        <span className="text-[10px] uppercase font-bold tracking-wider">Sign In</span>
-                    </div>
+                    {mounted && (
+                        (() => {
+                            let isLoggedIn = false;
+                            try {
+                                const cookieStr = document.cookie.split('; ').find(row => row.startsWith('session='));
+                                if (cookieStr) {
+                                    const sessionCookie = decodeURIComponent(cookieStr.split('=')[1]);
+                                    const parsedObj = JSON.parse(sessionCookie);
+                                    if (parsedObj?.accessToken) isLoggedIn = true;
+                                }
+                            } catch (e) { }
+
+                            if (isLoggedIn) {
+                                return (
+                                    <Link href="/account" className="hidden md:flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors group">
+                                        <User className="w-6 h-6 mb-1 text-blue-600 group-hover:text-blue-700" />
+                                        <span className="text-[10px] uppercase font-bold tracking-wider">Account</span>
+                                    </Link>
+                                );
+                            }
+
+                            return (
+                                <div
+                                    onClick={() => setIsSignInModalOpen(true)}
+                                    className="hidden md:flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors group"
+                                >
+                                    <User className="w-6 h-6 mb-1 text-gray-600 group-hover:text-blue-600" />
+                                    <span className="text-[10px] uppercase font-bold tracking-wider">Sign In</span>
+                                </div>
+                            );
+                        })()
+                    )}
                     <button
                         onClick={() => setIsOpen(true)}
                         className="flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 cursor-pointer transition-colors relative group"
