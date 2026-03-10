@@ -76,6 +76,20 @@ export default async function CategoryPage({ params }: { params: { category: str
                 { _id: "mb4", name: "Piano Stone Carved", priceData: { formatted: { price: "$249.99", discountedPrice: "$249.99" } }, media: { mainMedia: { image: { url: "/images/marble/piano stone carved.png" } } }, slug: "piano-stone-carved" },
                 { _id: "mb5", name: "Stone Violin (Hebrew: כינור אבן)", priceData: { formatted: { price: "$179.99", discountedPrice: "$179.99" } }, media: { mainMedia: { image: { url: "/images/marble/כינור אבן.png" } } }, slug: "stone-violin" },
             ];
+        } else if (category === "custom-signage") {
+            collection = {
+                _id: "mock-custom-signage",
+                name: "Custom Signage",
+                description: "Professional, high-impact custom signage for your business or home.",
+            };
+            products = [
+                { _id: "cs1", name: "Modern Office Sign", priceData: { formatted: { price: "$149.99", discountedPrice: "$149.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_13kg8l13kg8l13kg.png" } } }, ribbon: "New", slug: "modern-office-sign" },
+                { _id: "cs2", name: "Industrial Metal Plaque", priceData: { formatted: { price: "$199.99", discountedPrice: "$199.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_7dzjno7dzjno7dzj.png" } } }, slug: "industrial-metal-plaque" },
+                { _id: "cs3", name: "Boutique Wood Sign", priceData: { formatted: { price: "$129.99", discountedPrice: "$129.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_7ms8v97ms8v97ms8.png" } } }, slug: "boutique-wood-sign" },
+                { _id: "cs4", name: "Premium Acrylic Sign", priceData: { formatted: { price: "$179.99", discountedPrice: "$179.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_a3uliwa3uliwa3ul.png" } } }, ribbon: "Bestseller", slug: "premium-acrylic-sign" },
+                { _id: "cs5", name: "Rustic Outdoor Signboat", priceData: { formatted: { price: "$159.99", discountedPrice: "$159.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_ek5feek5feek5fee.png" } } }, slug: "rustic-outdoor-sign" },
+                { _id: "cs6", name: "Glass Effect Business Sign", priceData: { formatted: { price: "$219.99", discountedPrice: "$219.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_u5l3alu5l3alu5l3.png" } } }, slug: "glass-effect-sign" },
+            ];
         } else {
             // 2. Fetch collection by slug from Wix
             const colResp = await wixClient.collections
