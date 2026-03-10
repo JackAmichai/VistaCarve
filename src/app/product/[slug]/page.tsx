@@ -1,7 +1,7 @@
 import wixClient from "@/lib/wixClient";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Package, LayoutTemplate, BookOpen, Ruler } from "lucide-react";
 import VariantSelector from "@/components/product/VariantSelector";
 import ProductCarousel from "@/components/product/ProductCarousel";
 
@@ -125,15 +125,31 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         />
 
                         {/* Accordion Details (Vistaprint Style) */}
-                        <div className="mt-12 space-y-6 pt-10 border-t border-gray-200">
-                            <div className="space-y-2 text-sm text-gray-600">
-                                <h4 className="font-bold text-gray-900 uppercase tracking-wider mb-3">Product Overview</h4>
-                                <ul className="list-disc pl-5 space-y-2">
-                                    <li>High-quality materials sourced responsibly.</li>
-                                    <li>Precision carving and engraving using latest CNC and laser tech.</li>
-                                    <li>Hand-finished and inspected for flawless details.</li>
-                                </ul>
-                            </div>
+                        <div className="mt-12 border-t border-gray-200">
+                            <button className="w-full flex items-center justify-between py-6 border-b border-gray-200 hover:bg-gray-50 transition-colors text-left group">
+                                <div className="flex items-center gap-4 text-gray-900 font-semibold text-lg">
+                                    <Package className="w-5 h-5 text-gray-700" />
+                                    <span className="group-hover:underline underline-offset-4">Get a pre-printed sample</span>
+                                </div>
+                            </button>
+                            <button className="w-full flex items-center justify-between py-6 border-b border-gray-200 hover:bg-gray-50 transition-colors text-left group">
+                                <div className="flex items-center gap-4 text-gray-900 font-semibold text-lg">
+                                    <LayoutTemplate className="w-5 h-5 text-gray-700" />
+                                    <span className="group-hover:underline underline-offset-4">Specs & Templates</span>
+                                </div>
+                            </button>
+                            <button className="w-full flex items-center justify-between py-6 border-b border-gray-200 hover:bg-gray-50 transition-colors text-left group">
+                                <div className="flex items-center gap-4 text-gray-900 font-semibold text-lg">
+                                    <BookOpen className="w-5 h-5 text-gray-700" />
+                                    <span className="group-hover:underline underline-offset-4">Product Options</span>
+                                </div>
+                            </button>
+                            <button className="w-full flex items-center justify-between py-6 border-b border-gray-200 hover:bg-gray-50 transition-colors text-left group">
+                                <div className="flex items-center gap-4 text-gray-900 font-semibold text-lg">
+                                    <Ruler className="w-5 h-5 text-gray-700" />
+                                    <span className="group-hover:underline underline-offset-4">Sizes & Dimensions</span>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </div>

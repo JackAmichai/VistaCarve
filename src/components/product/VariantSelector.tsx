@@ -98,6 +98,26 @@ export default function VariantSelector({ productId, productOptions, price }: Va
                 </div>
             </div>
 
+            {/* VistaPrint Style Customization Buttons */}
+            <div className="space-y-3 pt-6">
+                <button
+                    className="w-full flex items-center justify-center gap-2 bg-[#67c2f0] hover:bg-[#56b0db] text-gray-900 font-bold py-4 rounded-md transition-colors border border-[#5ab7e6]"
+                >
+                    Browse our templates
+                    <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                </button>
+                <button
+                    className="w-full flex items-center justify-center gap-2 bg-white text-gray-900 border border-gray-300 hover:border-gray-800 font-bold py-4 rounded-md transition-colors shadow-sm"
+                >
+                    Upload your design
+                    <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    </svg>
+                </button>
+            </div>
+
             <div className="pt-6">
                 <button
                     onClick={handleAddToCart}
