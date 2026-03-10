@@ -12,15 +12,15 @@ export async function getWixAccessToken() {
     }
 
     try {
-        const response = await fetch("https://www.wixapis.com/oauth/access", {
+        const response = await fetch("https://www.wixapis.com/oauth2/token", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                grant_type: "client_credentials",
-                client_id: appId,
-                client_secret: appSecret,
+                grantType: "client_credentials",
+                clientId: appId,
+                clientSecret: appSecret,
             }),
         });
 

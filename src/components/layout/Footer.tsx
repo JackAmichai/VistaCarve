@@ -13,19 +13,19 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Let Us Help</h4>
                         <ul className="space-y-3">
-                            <li><Link href="/account" className="hover:text-white transition-colors">My Account</Link></li>
-                            <li><Link href="/shipping" className="hover:text-white transition-colors">Shipping Options</Link></li>
-                            <li><Link href="/help" className="hover:text-white transition-colors">Help Center</Link></li>
-                            <li><Link href="/returns" className="hover:text-white transition-colors">Return Policy</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">My Account</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">Shipping Options</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">Help Center</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">Return Policy</Link></li>
                         </ul>
                     </div>
                     <div>
                         <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Our Company</h4>
                         <ul className="space-y-3">
-                            <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                            <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-                            <li><Link href="/sustainability" className="hover:text-white transition-colors">Sustainability</Link></li>
-                            <li><Link href="/press" className="hover:text-white transition-colors">Press</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">About Us</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">Sustainability</Link></li>
+                            <li><Link href="#" className="hover:text-white transition-colors">Press</Link></li>
                         </ul>
                     </div>
                     <div>
