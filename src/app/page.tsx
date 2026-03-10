@@ -113,7 +113,7 @@ export default async function HomePage() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center mb-16 text-white drop-shadow-md"
+          className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 drop-shadow-sm"
         >
           The VistaCarve Process
         </MotionH2>
@@ -128,9 +128,9 @@ export default async function HomePage() {
             viewport={{ once: true }}
             className="glass-card p-8 rounded-2xl flex flex-col items-center text-center cursor-default"
           >
-            <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-[0_0_20px_rgba(37,99,235,0.5)] z-10">1</div>
-            <h3 className="text-xl font-bold mb-3 text-white">Upload Your Design</h3>
-            <p className="text-gray-300 text-sm">Send us your image, logo, or text. Our design maker helps you position it perfectly on the material of your choice.</p>
+            <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md z-10">1</div>
+            <h3 className="text-xl font-bold mb-3 text-gray-900">Upload Your Design</h3>
+            <p className="text-gray-700 font-medium text-sm">Send us your image, logo, or text. Our design maker helps you position it perfectly on the material of your choice.</p>
           </MotionDiv>
 
           <MotionDiv
@@ -141,9 +141,9 @@ export default async function HomePage() {
             transition={{ delay: 0.2 }}
             className="glass-card p-8 rounded-2xl flex flex-col items-center text-center md:translate-y-8 cursor-default"
           >
-            <div className="w-16 h-16 rounded-full bg-accent text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-[0_0_20px_rgba(22,163,74,0.5)] z-10">2</div>
-            <h3 className="text-xl font-bold mb-3 text-white">We Carve It</h3>
-            <p className="text-gray-300 text-sm">Our modern, state-of-the-art precision tools expertly carve your design into premium wood, authentic stone, or sleek metal.</p>
+            <div className="w-16 h-16 rounded-full bg-accent text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md z-10">2</div>
+            <h3 className="text-xl font-bold mb-3 text-gray-900">We Carve It</h3>
+            <p className="text-gray-700 font-medium text-sm">Our modern, state-of-the-art precision tools expertly carve your design into premium wood, authentic stone, or sleek metal.</p>
           </MotionDiv>
 
           <MotionDiv
@@ -154,9 +154,9 @@ export default async function HomePage() {
             transition={{ delay: 0.4 }}
             className="glass-card p-8 rounded-2xl flex flex-col items-center text-center cursor-default"
           >
-            <div className="w-16 h-16 rounded-full bg-[#f59e0b] text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-[0_0_20px_rgba(245,158,11,0.5)] z-10">3</div>
-            <h3 className="text-xl font-bold mb-3 text-white">Shipped to You</h3>
-            <p className="text-gray-300 text-sm">Carefully packaged and shipped quickly right to your door. Enjoy your stunning, one-of-a-kind custom piece forever!</p>
+            <div className="w-16 h-16 rounded-full bg-[#f59e0b] text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md z-10">3</div>
+            <h3 className="text-xl font-bold mb-3 text-gray-900">Shipped to You</h3>
+            <p className="text-gray-700 font-medium text-sm">Carefully packaged and shipped quickly right to your door. Enjoy your stunning, one-of-a-kind custom piece forever!</p>
           </MotionDiv>
         </div>
       </section>
@@ -165,8 +165,8 @@ export default async function HomePage() {
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-sm">Master Craftsmanship Meets Modern Technology</h2>
-            <p className="text-gray-300 mb-8 text-lg font-light leading-relaxed">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight drop-shadow-sm">Master Craftsmanship Meets Modern Technology</h2>
+            <p className="text-gray-800 mb-8 text-lg font-medium leading-relaxed">
               At VistaCarve, we don't just produce items; we create heirlooms. Our unique blend of laser-precision technology and traditional artisan finishing ensures every piece is distinct, durable, and breathtakingly beautiful.
             </p>
             <div className="space-y-6">
@@ -175,8 +175,8 @@ export default async function HomePage() {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-lg mb-1">Premium Sustainable Materials</h4>
-                  <p className="text-gray-400 text-sm">We source only the finest, ethically harvested wood and natural stone top-tier quality that lasts generations.</p>
+                  <h4 className="text-gray-900 font-bold text-lg mb-1">Premium Sustainable Materials</h4>
+                  <p className="text-gray-700 text-sm font-medium">We source only the finest, ethically harvested wood and natural stone top-tier quality that lasts generations.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
@@ -184,8 +184,8 @@ export default async function HomePage() {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-lg mb-1">Lightning Fast Turnaround</h4>
-                  <p className="text-gray-400 text-sm">Most custom orders are carved, finished, and shipped within 48 hours of you approving the design proof.</p>
+                  <h4 className="text-gray-900 font-bold text-lg mb-1">Lightning Fast Turnaround</h4>
+                  <p className="text-gray-700 text-sm font-medium">Most custom orders are carved, finished, and shipped within 48 hours of you approving the design proof.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
@@ -193,8 +193,8 @@ export default async function HomePage() {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-lg mb-1">100% Satisfaction Guarantee</h4>
-                  <p className="text-gray-400 text-sm">If you aren't completely thrilled with your masterpiece, our dedicated support team will make it right, whatever it takes.</p>
+                  <h4 className="text-gray-900 font-bold text-lg mb-1">100% Satisfaction Guarantee</h4>
+                  <p className="text-gray-700 text-sm font-medium">If you aren't completely thrilled with your masterpiece, our dedicated support team will make it right, whatever it takes.</p>
                 </div>
               </div>
             </div>
@@ -212,20 +212,20 @@ export default async function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 md:px-8 bg-black/40 backdrop-blur-md border-y border-white/10 mt-16 mb-8 w-full">
+      <section className="py-20 px-4 md:px-8 glass-panel mt-16 mb-8 w-full border-y border-white/20">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white drop-shadow-md">What Our Customers Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 drop-shadow-sm">What Our Customers Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="glass-card p-8 rounded-2xl">
               <div className="flex text-[#fbbf24] mb-6 text-xl">
                 ★★★★★
               </div>
-              <p className="text-gray-200 italic mb-8 leading-relaxed">"The wood sign we ordered for our cabin exceeded all expectations. The detail and depth of the carve are simply stunning. Highly recommended!"</p>
+              <p className="text-gray-800 italic mb-8 leading-relaxed font-medium">"The wood sign we ordered for our cabin exceeded all expectations. The detail and depth of the carve are simply stunning. Highly recommended!"</p>
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 rounded-full bg-primary/40 flex items-center justify-center font-bold text-white border border-white/20">JD</div>
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center font-bold text-white border border-white/20">JD</div>
                 <div>
-                  <h4 className="font-bold text-white">John D.</h4>
-                  <p className="text-primary-foreground text-xs opacity-70">Custom Wood Sign</p>
+                  <h4 className="font-bold text-gray-900">John D.</h4>
+                  <p className="text-blue-600 text-xs font-bold">Custom Wood Sign</p>
                 </div>
               </div>
             </div>
@@ -234,12 +234,12 @@ export default async function HomePage() {
               <div className="flex text-[#fbbf24] mb-6 text-xl">
                 ★★★★★
               </div>
-              <p className="text-gray-200 italic mb-8 leading-relaxed">"Got a metal engraving for my husband's anniversary gift. It looks so premium and came exactly like the preview. Will definitely be ordering again."</p>
+              <p className="text-gray-800 italic mb-8 leading-relaxed font-medium">"Got a metal engraving for my husband's anniversary gift. It looks so premium and came exactly like the preview. Will definitely be ordering again."</p>
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center font-bold text-white border border-white/20">SM</div>
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center font-bold text-white border border-white/20">SM</div>
                 <div>
-                  <h4 className="font-bold text-white">Sarah M.</h4>
-                  <p className="text-primary-foreground text-xs opacity-70">Metal Engraving</p>
+                  <h4 className="font-bold text-gray-900">Sarah M.</h4>
+                  <p className="text-green-600 text-xs font-bold">Metal Engraving</p>
                 </div>
               </div>
             </div>
@@ -248,12 +248,12 @@ export default async function HomePage() {
               <div className="flex text-[#fbbf24] mb-6 text-xl">
                 ★★★★★
               </div>
-              <p className="text-gray-200 italic mb-8 leading-relaxed">"The marble photo plaque is breathtaking. It's a heavy, beautiful piece that sits perfectly on our mantle. Customer service was also top-notch when I needed help."</p>
+              <p className="text-gray-800 italic mb-8 leading-relaxed font-medium">"The marble photo plaque is breathtaking. It's a heavy, beautiful piece that sits perfectly on our mantle. Customer service was also top-notch when I needed help."</p>
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 rounded-full bg-[#f59e0b]/40 flex items-center justify-center font-bold text-white border border-white/20">TR</div>
+                <div className="w-12 h-12 rounded-full bg-[#f59e0b] flex items-center justify-center font-bold text-white border border-white/20">TR</div>
                 <div>
-                  <h4 className="font-bold text-white">Tommy R.</h4>
-                  <p className="text-primary-foreground text-xs opacity-70">Stone & Marble</p>
+                  <h4 className="font-bold text-gray-900">Tommy R.</h4>
+                  <p className="text-orange-600 text-xs font-bold">Stone & Marble</p>
                 </div>
               </div>
             </div>
@@ -322,46 +322,46 @@ export default async function HomePage() {
 
       {/* FAQ Section */}
       <section className="py-20 px-4 md:px-8 max-w-4xl mx-auto w-full mb-12">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-white drop-shadow-md">Frequently Asked Questions</h2>
-        <p className="text-center text-gray-400 mb-12">Have a question? We're here to help.</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-gray-900 drop-shadow-sm">Frequently Asked Questions</h2>
+        <p className="text-center text-gray-700 font-medium mb-12">Have a question? We're here to help.</p>
 
         <div className="space-y-4">
-          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all cursor-pointer">
-            <h3 className="text-xl font-bold text-white mb-2 flex justify-between items-center">
+          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/50 transition-all cursor-pointer">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 flex justify-between items-center">
               What file types do you accept for custom designs?
               <span className="text-primary text-2xl group-hover:rotate-180 transition-transform duration-300">ꜜ</span>
             </h3>
-            <p className="text-gray-300 mt-3 border-t border-white/10 pt-3">
+            <p className="text-gray-700 font-medium mt-3 border-t border-black/5 pt-3">
               We highly recommend high-resolution PNG, JPG, or SVG files. For the sharpest laser engraving, pure black-and-white vector files (SVG, EPS, AI) produce the best results, but our design maker easily works with standard image files too!
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all cursor-pointer">
-            <h3 className="text-xl font-bold text-white mb-2 flex justify-between items-center">
+          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/50 transition-all cursor-pointer">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 flex justify-between items-center">
               Can I see a proof before my item is carved?
               <span className="text-primary text-2xl group-hover:rotate-180 transition-transform duration-300">ꜜ</span>
             </h3>
-            <p className="text-gray-300 mt-3 border-t border-white/10 pt-3">
+            <p className="text-gray-700 font-medium mt-3 border-t border-black/5 pt-3">
               Absolutely! Our online design maker gives you an interactive, real-time 3D preview of what your finished piece will look like. For deeply custom orders or corporate batches, our design team will manually email you a final digital proof for approval.
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all cursor-pointer">
-            <h3 className="text-xl font-bold text-white mb-2 flex justify-between items-center">
+          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/50 transition-all cursor-pointer">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 flex justify-between items-center">
               Do you offer bulk discounts for corporate gifts or weddings?
               <span className="text-primary text-2xl group-hover:rotate-180 transition-transform duration-300">ꜜ</span>
             </h3>
-            <p className="text-gray-300 mt-3 border-t border-white/10 pt-3">
+            <p className="text-gray-700 font-medium mt-3 border-t border-black/5 pt-3">
               Yes, we do! We have robust reseller and corporate pricing programs tailored for large-volume orders. Please visit our "Corporate Pricing" page from the top navigation menu or chat with us for a custom quote.
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/30 transition-all cursor-pointer">
-            <h3 className="text-xl font-bold text-white mb-2 flex justify-between items-center">
+          <div className="glass-card p-6 rounded-2xl group hover:border-blue-500/50 transition-all cursor-pointer">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 flex justify-between items-center">
               Is the wood you use responsibly sourced?
               <span className="text-primary text-2xl group-hover:rotate-180 transition-transform duration-300">ꜜ</span>
             </h3>
-            <p className="text-gray-300 mt-3 border-t border-white/10 pt-3">
+            <p className="text-gray-700 font-medium mt-3 border-t border-black/5 pt-3">
               We take sustainability seriously. All of our wood blocks and plaques are sourced from FSC-certified forests, ensuring that every piece we carve supports responsible forestry practices and environmental conservation.
             </p>
           </div>

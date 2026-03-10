@@ -44,7 +44,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
                 {/* Content */}
                 <CardContent className="p-0 flex-1 px-5 pt-3">
-                    <h3 className="font-semibold text-white line-clamp-2 text-lg group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                    <h3 className="font-semibold text-gray-900 line-clamp-2 text-lg group-hover:text-blue-600 transition-colors drop-shadow-sm">
                         {product.name}
                     </h3>
                 </CardContent>
@@ -52,13 +52,13 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <CardFooter className="p-0 mt-3 pt-3 pb-5 px-5 flex flex-col items-start gap-1">
                     {isSale ? (
                         <div className="flex gap-2 items-center">
-                            <span className="font-bold text-red-400 text-lg drop-shadow-sm">{price}</span>
-                            <span className="text-sm text-gray-400 line-through opacity-70">{originalPrice}</span>
+                            <span className="font-bold text-red-600 text-lg drop-shadow-sm">{price}</span>
+                            <span className="text-sm text-gray-500 line-through opacity-70">{originalPrice}</span>
                         </div>
                     ) : (
-                        <span className="font-bold text-white text-lg drop-shadow-sm">{price}</span>
+                        <span className="font-bold text-gray-900 text-lg drop-shadow-sm">{price}</span>
                     )}
-                    <span className="text-xs text-gray-300 opacity-80 mt-1">Includes basic material</span>
+                    <span className="text-xs text-gray-600 font-medium mt-1">Includes basic material</span>
                 </CardFooter>
             </Link>
         </Card>

@@ -1,40 +1,50 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, MonitorSmartphone, Store, Palette, Globe } from "lucide-react";
+import { MonitorSmartphone, Store, Palette, Globe } from "lucide-react";
 import Link from "next/link";
+import { provisionWixSite } from "./actions";
 
 export default function CreateWebsiteWizard() {
     const [step, setStep] = useState(1);
     const [businessName, setBusinessName] = useState("");
     const [siteType, setSiteType] = useState("");
-    const [isProvisioning, setIsProvisioning] = useState(false);
     const [provisionProgress, setProvisionProgress] = useState(0);
+    const [dashboardUrl, setDashboardUrl] = useState("https://manage.wix.com/");
 
-    // Simulate the Wix Site Provisioning API Headless delay
-    useEffect(() => {
-        if (step === 3 && isProvisioning) {
-            const interval = setInterval(() => {
-                setProvisionProgress((prev) => {
-                    if (prev >= 100) {
-                        clearInterval(interval);
-                        setIsProvisioning(false);
-                        setStep(4);
-                        return 100;
-                    }
-                    return prev + 5;
-                });
-            }, 150);
-            return () => clearInterval(interval);
-        }
-    }, [step, isProvisioning]);
-
-    const handleCreateSite = () => {
+    // Handle Wix Site Provisioning
+    const handleCreateSite = async () => {
         setStep(3);
-        setIsProvisioning(true);
         setProvisionProgress(0);
+
+        // Simulate progress bar UI
+        const interval = setInterval(() => {
+            setProvisionProgress((prev) => (prev < 90 ? prev + 2 : prev));
+        }, 100);
+
+        try {
+            // CALL THE SERVER ACTION
+            const result = await provisionWixSite(businessName, siteType);
+
+            if (result.success && result.dashboardUrl) {
+                setDashboardUrl(result.dashboardUrl);
+                setProvisionProgress(100);
+                setTimeout(() => {
+                    clearInterval(interval);
+                    setStep(4);
+                }, 500);
+            } else {
+                alert("Provisioning failed. See console.");
+                setStep(2);
+                clearInterval(interval);
+            }
+        } catch (err) {
+            console.error(err);
+            setStep(2);
+            clearInterval(interval);
+        }
     };
 
     return (
@@ -104,8 +114,8 @@ export default function CreateWebsiteWizard() {
                             &larr; Back
                         </button>
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-2">What's the name of your business?</h2>
-                            <p className="text-gray-500">Don't worry, you can change this later in the Wix Editor.</p>
+                            <h2 className="text-3xl font-bold text-gray-900 mb-2">What&apos;s the name of your business?</h2>
+                            <p className="text-gray-500">Don&apos;t worry, you can change this later in the Wix Editor.</p>
                         </div>
 
                         <Input
@@ -156,11 +166,11 @@ export default function CreateWebsiteWizard() {
                         </div>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 font-serif">Your site is ready!</h2>
                         <p className="text-xl text-gray-600 max-w-lg mx-auto mb-10">
-                            We've created a new Wix backend for <strong className="text-black">{businessName}</strong>. You can now access the Editor to design your pages and manage your products.
+                            We&apos;ve created a new Wix backend for <strong className="text-black">{businessName}</strong>. You can now access the Editor to design your pages and manage your products.
                         </p>
 
                         <div className="flex flex-col gap-4 max-w-md mx-auto">
-                            <Link href="https://manage.wix.com/" target="_blank" rel="noopener noreferrer">
+                            <Link href={dashboardUrl} target="_blank" rel="noopener noreferrer">
                                 <Button className="w-full rounded-full bg-blue-600 hover:bg-blue-700 h-14 text-lg font-bold">
                                     Go to Wix Dashboard
                                 </Button>

@@ -19,9 +19,9 @@ export default function ProductCarousel({ title, items, linkText, linkUrl }: Pro
     return (
         <div className="w-full relative">
             <div className="flex items-end justify-between mb-8 mt-4 px-2">
-                <h2 className="text-3xl font-bold font-serif text-white drop-shadow-md">{title}</h2>
+                <h2 className="text-3xl font-bold font-serif text-gray-900 drop-shadow-sm">{title}</h2>
                 {linkText && linkUrl && (
-                    <a href={linkUrl} className="text-sm font-semibold text-blue-300 hover:text-white hover:underline flex items-center gap-1 transition-colors">
+                    <a href={linkUrl} className="text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1 transition-colors">
                         {linkText} <ChevronRight className="w-4 h-4" />
                     </a>
                 )}
@@ -45,8 +45,8 @@ export default function ProductCarousel({ title, items, linkText, linkUrl }: Pro
                         ))}
                     </CarouselContent>
                     <div className="hidden md:block">
-                        <CarouselPrevious className="-left-4 bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:text-white h-12 w-12 transition-all shadow-xl" />
-                        <CarouselNext className="-right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:text-white h-12 w-12 transition-all shadow-xl" />
+                        <CarouselPrevious className="-left-4 bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 h-12 w-12 transition-all shadow-lg" />
+                        <CarouselNext className="-right-4 bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 h-12 w-12 transition-all shadow-lg" />
                     </div>
                 </div>
             </Carousel>

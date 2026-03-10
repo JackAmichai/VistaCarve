@@ -11,10 +11,6 @@ const wixClient = createClient({
   },
   auth: OAuthStrategy({
     clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID || "",
-    tokens: {
-      refreshToken: { value: "" },
-      accessToken: { value: "", expiresAt: 0 }
-    },
   }),
 });
 
@@ -22,7 +18,7 @@ const wixClient = createClient({
 if (typeof window !== "undefined") {
   try {
     const tokensStr = Cookies.get("session");
-    if (tokensStr) {
+    if (tokensStr && tokensStr !== "undefined") {
       wixClient.auth.setTokens(JSON.parse(tokensStr));
     }
   } catch (err) {
