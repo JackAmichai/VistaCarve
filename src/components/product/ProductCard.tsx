@@ -3,12 +3,14 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { products } from "@wix/stores";
+import { useCartStore } from "@/store/useCartStore";
 
 interface ProductCardProps {
     product: products.Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+    const { addToCart } = useCartStore();
     // Extract primary image
     const primaryImage = product.media?.mainMedia?.image?.url || "";
 
@@ -62,6 +64,22 @@ export default function ProductCard({ product }: ProductCardProps) {
                     <span className="text-xs text-gray-600 font-medium mt-1">Includes basic material</span>
                 </CardFooter>
             </Link>
+            <CardFooter className="px-5 pb-5 pt-0">
+                <Button 
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        addToCart(product._id!, 1, { 
+                            name: product.name!, 
+                            price: price, 
+                            image: primaryImage 
+                        });
+                    }}
+                    className="w-full rounded-full bg-blue-600 border-2 border-blue-600 font-bold hover:bg-white hover:text-blue-600 transition-all duration-300"
+                >
+                    Add to Cart
+                </Button>
+            </CardFooter>
         </Card>
     );
 }

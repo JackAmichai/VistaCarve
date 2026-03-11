@@ -31,6 +31,16 @@ export default function Header() {
         fetchCart();
     }, [fetchCart]);
 
+    useEffect(() => {
+        if (!mounted || !searchQuery.trim()) return;
+
+        const timer = setTimeout(() => {
+            router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, [searchQuery, mounted, router]);
+
     const itemCount = cart?.lineItems?.reduce((acc: number, item: any) => acc + item.quantity, 0) || 0;
 
     return (

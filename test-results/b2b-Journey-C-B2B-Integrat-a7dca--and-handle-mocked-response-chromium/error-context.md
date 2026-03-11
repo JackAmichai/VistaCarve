@@ -1,0 +1,156 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner:
+    - generic:
+      - generic: Welcome to VistaCarve - Premium Custom Details
+      - generic:
+        - link "Help is here 1.800.123.4567":
+          - /url: /help
+        - link "Corporate Pricing":
+          - /url: /reseller
+        - link "Reseller Program":
+          - /url: /reseller
+    - generic:
+      - generic:
+        - link "VistaCarve Logo VistaCarve × Wix Logo":
+          - /url: /
+          - generic:
+            - img "VistaCarve Logo"
+          - generic:
+            - generic: VistaCarve
+            - generic: ×
+            - generic:
+              - img "Wix Logo"
+      - generic:
+        - textbox "Search custom products..."
+        - button:
+          - img
+      - generic:
+        - link "Design Maker":
+          - /url: /design-maker
+          - img
+          - generic: Design Maker
+        - link "Consultation":
+          - /url: /consultation
+          - img
+          - generic: Consultation
+        - link "Portfolio":
+          - /url: /portfolio
+          - img
+          - generic: Portfolio
+        - generic:
+          - img
+          - generic: Sign In
+        - button "Open Cart":
+          - generic:
+            - img
+          - generic: Cart
+    - navigation:
+      - list:
+        - listitem:
+          - link "Websites":
+            - /url: /websites
+        - listitem:
+          - link "Wood Carvings":
+            - /url: /shop/wood-carvings
+        - listitem:
+          - link "Metal Engravings":
+            - /url: /shop/metal-engravings
+        - listitem:
+          - link "Stone Carvings":
+            - /url: /shop/stone-carvings
+        - listitem:
+          - link "Corporate Gifts":
+            - /url: /shop/corporate-gifts
+        - listitem:
+          - link "Wedding Decor":
+            - /url: /shop/wedding-decor
+        - listitem:
+          - link "Custom Signage":
+            - /url: /shop/custom-signage
+        - listitem: Deals
+  - main:
+    - generic:
+      - generic:
+        - generic:
+          - img
+          - generic: vistacarve x wix
+        - generic:
+          - button "← Back"
+          - generic:
+            - heading "What's the name of your business?" [level=2]
+            - paragraph: Don't worry, you can change this later in the Wix Editor.
+          - textbox "e.g., John's Custom Woodworks": Test Business
+          - generic:
+            - button "Generate My Site"
+  - contentinfo:
+    - generic:
+      - generic:
+        - generic:
+          - heading "vistacarve." [level=3]
+          - paragraph: From custom wooden signs to metal statues. If you need it carved, we carve it.
+          - paragraph: 1.800.123.4567
+        - generic:
+          - heading "Let Us Help" [level=4]
+          - list:
+            - listitem:
+              - link "My Account":
+                - /url: "#"
+            - listitem:
+              - link "Shipping Options":
+                - /url: "#"
+            - listitem:
+              - link "Help Center":
+                - /url: "#"
+            - listitem:
+              - link "Return Policy":
+                - /url: "#"
+        - generic:
+          - heading "Our Company" [level=4]
+          - list:
+            - listitem:
+              - link "About Us":
+                - /url: "#"
+            - listitem:
+              - link "Careers":
+                - /url: "#"
+            - listitem:
+              - link "Sustainability":
+                - /url: "#"
+            - listitem:
+              - link "Press":
+                - /url: "#"
+        - generic:
+          - generic:
+            - heading "Sign Up For Inspiration" [level=4]
+          - paragraph: Get exclusive offers and creative design tips delivered directly to your inbox.
+          - generic:
+            - textbox "Email address"
+            - button "Sign Up"
+      - generic:
+        - generic:
+          - generic: © 2026 VistaCarve. All rights reserved.
+        - generic:
+          - link "Terms of Use":
+            - /url: /terms
+          - link "Privacy Policy":
+            - /url: /privacy
+  - generic:
+    - button "Open Chat":
+      - generic:
+        - img "Chat"
+  - generic:
+    - alert
+  - dialog "Welcome to VistaCarve!" [ref=e2]:
+    - button "Close" [active] [ref=e3] [cursor=pointer]: ×
+    - banner [ref=e4]: Welcome to VistaCarve!
+    - generic [ref=e5]: Let us take you on a quick tour of our updated premium layout.
+    - contentinfo [ref=e6]:
+      - generic [ref=e7]: 1 of 4
+      - generic [ref=e8]:
+        - button "← Previous" [disabled]
+        - button "Next →" [ref=e9] [cursor=pointer]
+  - img
+```

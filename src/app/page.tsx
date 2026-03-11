@@ -14,7 +14,18 @@ export default async function HomePage() {
     const response = await wixClient.products.queryProducts().limit(15).find();
     allProducts = response.items || [];
   } catch (err) {
-    console.warn("Failed to fetch products from Wix", err);
+    console.warn("Failed to fetch products from Wix, loading local mocks:", err);
+  }
+
+  // Fallback products for demo/testing if Wix is not connected
+  if (allProducts.length === 0) {
+    allProducts = [
+      { _id: "m1", name: "Premium Oak Sign", slug: "premium-oak-sign", priceData: { formatted: { price: "$49.99" } }, media: { mainMedia: { image: { url: "/images/wood/carribian islands wood.png" } } } },
+      { _id: "m2", name: "Custom Metal Plaque", slug: "custom-metal-plaque", priceData: { formatted: { price: "$79.99" } }, media: { mainMedia: { image: { url: "/images/metal/dog metal.png" } } } },
+      { _id: "m3", name: "Marble Memorial Stone", slug: "marble-memorial", priceData: { formatted: { price: "$129.99" } }, media: { mainMedia: { image: { url: "/images/marble/Greek marbel.png" } } } },
+      { _id: "m4", name: "Walnut Desk Nameplate", slug: "walnut-nameplate", priceData: { formatted: { price: "$34.99" } }, media: { mainMedia: { image: { url: "/images/wood/sea board wood.png" } } } },
+      { _id: "m5", name: "Granite Address Sign", slug: "granite-address", priceData: { formatted: { price: "$89.99" } }, media: { mainMedia: { image: { url: "/images/marble/Roman pillars.png" } } } },
+    ];
   }
 
   // Split into pseudo-categories for demonstration carousels

@@ -125,6 +125,21 @@ export default async function CategoryPage({ params }: { params: { category: str
         );
     }
 
+    const categoryFilters: Record<string, string[]> = {
+        "wood-carvings": ["Oak", "Walnut", "Cherry", "Pine"],
+        "wood": ["Oak", "Walnut", "Cherry", "Pine"],
+        "metal-engravings": ["Steel", "Aluminium", "Brass", "Copper"],
+        "metal": ["Steel", "Aluminium", "Brass", "Copper"],
+        "stone-carvings": ["Granite", "Marble", "Slate", "Quartz"],
+        "stone": ["Granite", "Marble", "Slate", "Quartz"],
+        "marble": ["Granite", "Marble", "Slate", "Quartz"],
+        "corporate-gifts": ["Crystal", "Glass", "Metal", "Wood"],
+        "wedding-decor": ["Marble", "Stone", "Metal", "Glass"],
+        "custom-signage": ["Acrylic", "Wood", "Metal", "Glass"],
+    };
+
+    const currentFilters = categoryFilters[category as keyof typeof categoryFilters] || ["Small", "Medium", "Large"];
+
     return (
         <div className="flex flex-col min-h-screen">
             {/* Breadcrumbs */}
@@ -150,9 +165,16 @@ export default async function CategoryPage({ params }: { params: { category: str
                             <div>
                                 <h3 className="font-semibold mb-3 text-sm uppercase tracking-wider text-gray-500">Material Type</h3>
                                 <ul className="space-y-2 text-sm text-gray-800 font-bold">
-                                    <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Oak</label></li>
-                                    <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Walnut</label></li>
-                                    <li><label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" className="rounded text-blue-600 focus:ring-blue-600" /> Cherry</label></li>
+                                    {currentFilters.map((filter) => (
+                                        <li key={filter}>
+                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                <input
+                                                    type="checkbox"
+                                                    className="rounded text-blue-600 focus:ring-blue-600"
+                                                /> {filter}
+                                            </label>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             <div className="border-t pt-6">

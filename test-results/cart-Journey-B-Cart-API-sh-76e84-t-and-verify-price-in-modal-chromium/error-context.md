@@ -1,0 +1,49 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - generic:
+      - dialog "Unhandled Runtime Error":
+        - generic:
+          - generic:
+            - generic:
+              - navigation:
+                - button "previous" [disabled]:
+                  - img "previous"
+                - button "next" [disabled]:
+                  - img "next"
+                - generic: 1 of 1 error
+                - generic:
+                  - text: Next.js (14.2.35) is outdated
+                  - link "(learn more)":
+                    - /url: https://nextjs.org/docs/messages/version-staleness
+              - button "Close":
+                - generic:
+                  - img
+            - heading "Unhandled Runtime Error" [level=1]
+            - paragraph:
+              - text: "Error: useSyncExternalStore only works in Client Components. Add the \"use client\" directive at the top of the file to use it. Read more:"
+              - link "https://nextjs.org/docs/messages/react-client-hook-in-server-component":
+                - /url: https://nextjs.org/docs/messages/react-client-hook-in-server-component
+          - generic:
+            - heading "Source" [level=2]
+            - generic:
+              - generic:
+                - link "src/components/product/ProductCard.tsx (13:39) @ useCartStore":
+                  - generic: src/components/product/ProductCard.tsx (13:39) @ useCartStore
+                  - img
+              - generic: "11 | 12 | export default function ProductCard({ product }: ProductCardProps) { > 13 | const { addToCart } = useCartStore(); | ^ 14 | // Extract primary image 15 | const primaryImage = product.media?.mainMedia?.image?.url || \"\"; 16 |"
+            - heading "Call Stack" [level=2]
+            - button "Show collapsed frames"
+  - dialog "Welcome to VistaCarve!" [ref=e2]:
+    - button "Close" [active] [ref=e3] [cursor=pointer]: ×
+    - banner [ref=e4]: Welcome to VistaCarve!
+    - generic [ref=e5]: Let us take you on a quick tour of our updated premium layout.
+    - contentinfo [ref=e6]:
+      - generic [ref=e7]: 1 of 4
+      - generic [ref=e8]:
+        - button "← Previous" [disabled]
+        - button "Next →" [ref=e9] [cursor=pointer]
+  - img
+```
