@@ -26,7 +26,7 @@ export default function CartDrawer() {
             await wixClient.currentCart.removeLineItemsFromCurrentCart([itemId]);
             await fetchCart();
         } catch (err) {
-            console.error("Failed to remove item", err);
+            console.warn("Failed to remove item", err);
         }
     };
 
@@ -57,15 +57,15 @@ export default function CartDrawer() {
                 if (redirectSession?.redirectSession?.fullUrl) {
                     window.location.href = redirectSession.redirectSession.fullUrl;
                 } else {
-                    console.error("No fullUrl found in redirectSession", redirectSession);
+                    console.warn("No fullUrl found in redirectSession", redirectSession);
                     alert("Failed to generate secure checkout link.");
                 }
             } else {
-                console.error("No checkoutId found", checkoutUrlObj);
+                console.warn("No checkoutId found", checkoutUrlObj);
                 alert("Failed to initialize checkout.");
             }
         } catch (err) {
-            console.error("Failed to start checkout", err);
+            console.warn("Failed to start checkout", err);
             alert("Failed to start checkout. Check integration.");
         }
     };

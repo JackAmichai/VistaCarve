@@ -14,7 +14,7 @@ export default async function HomePage() {
     const response = await wixClient.products.queryProducts().limit(15).find();
     allProducts = response.items || [];
   } catch (err) {
-    console.error("Failed to fetch products from Wix", err);
+    console.warn("Failed to fetch products from Wix", err);
   }
 
   // Split into pseudo-categories for demonstration carousels

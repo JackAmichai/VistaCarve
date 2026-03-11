@@ -23,7 +23,7 @@ export default function ProductReviews({ productId }: { productId: string }) {
                 const response = await wixClient.reviews.queryReviews().eq("entityId", productId).find();
                 setReviews(response.items || []);
             } catch (err) {
-                console.error("Failed to fetch reviews (may not be installed on Wix yet)", err);
+                console.warn("[MOCK FALLBACK] Wix Reviews API not configured or failed auth.");
                 // Fallback mock data if the API throws an error due to missing Wix App installation
                 setReviews([
                     {

@@ -43,7 +43,7 @@ if (typeof window !== "undefined") {
       wixClient.auth.setTokens(JSON.parse(tokensStr));
     }
   } catch (err) {
-    console.error("Failed to parse Wix session cookie", err);
+    console.warn("Failed to parse Wix session cookie", err);
   }
 }
 

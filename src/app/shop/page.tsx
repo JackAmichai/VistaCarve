@@ -11,7 +11,7 @@ export default async function ShopPage() {
         const response = await wixClient.collections.queryCollections().find();
         collections = response.items || [];
     } catch (err) {
-        console.error("Failed to fetch collections", err);
+        console.warn("Failed to fetch collections", err);
     }
 
     return (

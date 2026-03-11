@@ -25,7 +25,7 @@ export const useCartStore = create<CartState>((set) => ({
             const current = await wixClient.currentCart.getCurrentCart();
             set({ cart: current, isLoading: false });
         } catch (err: any) {
-            console.error("Failed to fetch cart", err);
+            console.warn("Wix fetchCart failed, mostly expected due to missing/invalid client ID:", err?.message || err);
 
             // If the error is an Auth error (400 Bad Request) due to invalid session cookie,
             // clear the session cookie and reload to spawn a fresh visitor session.

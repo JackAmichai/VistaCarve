@@ -111,7 +111,7 @@ export default async function CategoryPage({ params }: { params: { category: str
             }
         }
     } catch (err) {
-        console.error("Failed to fetch category data", err);
+        console.warn("Failed to fetch category data", err);
     }
 
     if (!collection) {

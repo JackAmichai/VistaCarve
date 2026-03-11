@@ -27,14 +27,14 @@ export async function getWixAccessToken() {
 
         if (!response.ok) {
             const errorText = await response.text();
-            console.error("[Wix OAuth] Token generation failed:", response.status, errorText);
+            console.warn("[Wix OAuth] Token generation failed:", response.status, errorText);
             throw new Error(`Wix Auth Error (${response.status}): ${errorText || "Failed to generate access token"}`);
         }
 
         const data = await response.json();
         return data.access_token;
     } catch (error) {
-        console.error("[Wix OAuth] Error:", error);
+        console.warn("[Wix OAuth] Error:", error);
         throw error;
     }
 }
