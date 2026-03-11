@@ -9,7 +9,7 @@ interface CartState {
     isOpen: boolean;
     error: string | null;
     fetchCart: () => Promise<void>;
-    addToCart: (productId: string, quantity: number) => Promise<void>;
+    addToCart: (productId: string, quantity: number, options?: { name?: string, price?: string, image?: string }) => Promise<void>;
     setIsOpen: (isOpen: boolean) => void;
 }
 
@@ -46,7 +46,7 @@ export const useCartStore = create<CartState>((set) => ({
         }
     },
 
-    addToCart: async (productId: string, quantity: number) => {
+    addToCart: async (productId: string, quantity: number, options?: { name?: string, price?: string, image?: string }) => {
         set({ isLoading: true, error: null });
         try {
             // Assuming catalogReference app ID is global for Wix Stores
@@ -71,10 +71,10 @@ export const useCartStore = create<CartState>((set) => ({
                 
                 const mockLineItem = {
                     _id: Math.random().toString(36).substring(7),
-                    productName: { original: "Premium Custom Carving" },
+                    productName: { original: options?.name || "Premium Custom Carving" },
                     quantity,
-                    price: { amount: "49.99", formattedAmount: "$49.99" },
-                    image: "https://placehold.co/400" 
+                    price: { amount: options?.price?.replace(/[^0-9.]/g, '') || "49.99", formattedAmount: options?.price || "$49.99" },
+                    image: options?.image || "/images/new_logo.png" 
                 };
 
                 return {

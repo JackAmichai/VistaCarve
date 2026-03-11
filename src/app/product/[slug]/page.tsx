@@ -160,6 +160,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
                             productId={product._id!}
                             productOptions={product.productOptions || []}
                             price={price}
+                            productName={product.name}
+                            primaryImage={primaryImage}
                         />
 
                         {/* Accordion Details (Vistaprint Style) */}

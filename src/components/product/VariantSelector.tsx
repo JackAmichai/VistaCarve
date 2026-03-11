@@ -4,18 +4,22 @@ import { useState } from "react";
 import { useCartStore } from "@/store/useCartStore";
 import { Button } from "@/components/ui/button";
 import { Minus, Plus, ShoppingCart, Check } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface VariantSelectorProps {
     productId: string;
     productOptions: any[];
     price: string;
+    productName?: string;
+    primaryImage?: string;
 }
 
-export default function VariantSelector({ productId, productOptions, price }: VariantSelectorProps) {
+export default function VariantSelector({ productId, productOptions, price, productName, primaryImage }: VariantSelectorProps) {
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
     const [quantity, setQuantity] = useState(1);
     const { addToCart, isLoading, setIsOpen } = useCartStore();
     const [justAdded, setJustAdded] = useState(false);
+    const router = useRouter();
 
     // Auto-select first option for each category
     if (Object.keys(selectedOptions).length === 0 && productOptions?.length > 0) {
@@ -36,7 +40,7 @@ export default function VariantSelector({ productId, productOptions, price }: Va
         // Note: To strictly pass options to Wix Ecom, we'd need to resolve the variant ID 
         // or pass options explicitly if configured in the Wix backend. 
         // For this demonstration, we add the base product ID and quantity.
-        await addToCart(productId, quantity);
+        await addToCart(productId, quantity, { name: productName, price, image: primaryImage });
         setJustAdded(true);
         setTimeout(() => {
             setJustAdded(false);
@@ -101,6 +105,7 @@ export default function VariantSelector({ productId, productOptions, price }: Va
             {/* VistaPrint Style Customization Buttons */}
             <div className="space-y-3 pt-6">
                 <button
+                    onClick={() => router.push("/design-maker")}
                     className="w-full flex items-center justify-center gap-2 bg-[#67c2f0] hover:bg-[#56b0db] text-gray-900 font-bold py-4 rounded-md transition-colors border border-[#5ab7e6]"
                 >
                     Browse our templates
@@ -109,6 +114,7 @@ export default function VariantSelector({ productId, productOptions, price }: Va
                     </svg>
                 </button>
                 <button
+                    onClick={() => router.push("/design-maker")}
                     className="w-full flex items-center justify-center gap-2 bg-white text-gray-900 border border-gray-300 hover:border-gray-800 font-bold py-4 rounded-md transition-colors shadow-sm"
                 >
                     Upload your design

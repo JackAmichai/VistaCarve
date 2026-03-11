@@ -13,9 +13,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     const primaryImage = product.media?.mainMedia?.image?.url || "";
 
     // Format price
-    const price = product.price?.formatted?.price || "From $" + (product.price?.price || "0.00");
-    const isSale = product.price?.discountedPrice !== product.price?.price;
-    const originalPrice = product.price?.formatted?.discountedPrice;
+    const priceObj = (product as any).priceData || product.price;
+    const price = priceObj?.formatted?.price || "From $" + (priceObj?.price || "0.00");
+    const isSale = priceObj?.discountedPrice !== priceObj?.price;
+    const originalPrice = priceObj?.formatted?.discountedPrice;
 
     return (
         <Card className="h-full flex flex-col border-none shadow-none bg-transparent group cursor-pointer overflow-hidden rounded-xl glass-card hover:shadow-2xl transition-all duration-500 animate-fade-in-up">
