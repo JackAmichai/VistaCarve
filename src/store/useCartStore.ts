@@ -29,8 +29,10 @@ export const useCartStore = create<CartState>((set) => ({
 
             // If the error is an Auth error (400 Bad Request) due to invalid session cookie,
             // clear the session cookie and reload to spawn a fresh visitor session.
-            if (typeof window !== "undefined" && (err.message?.includes("400") || err.message?.toLowerCase().includes("bad request") || err.details?.applicationError?.code === 400)) {
-                console.warn("Detected 400 Bad Request. Clearing invalid session cookie...");
+            // Note: Wix SDK sometimes wraps 400 errors in a generic "System error occurred" exception message.
+            const errMsg = err.message?.toLowerCase() || "";
+            if (typeof window !== "undefined" && (errMsg.includes("400") || errMsg.includes("bad request") || err.details?.applicationError?.code === 400 || errMsg.includes("system error occurred"))) {
+                console.warn("Detected auth/system error. Clearing invalid session cookie...");
                 Cookies.remove("session");
                 window.location.reload();
                 return;
