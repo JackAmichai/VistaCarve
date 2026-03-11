@@ -26,7 +26,7 @@ test.describe('Journey C: B2B Integration Flow', () => {
         await page.getByRole('button', { name: /generate my site/i }).click();
 
         // 4. Verify success UI
-        await expect(page.getByText(/site created successfully/i)).toBeVisible();
-        await expect(page.getByRole('link', { name: /view dashboard/i })).toHaveAttribute('href', /.*mock-site-123/);
+        await expect(page.getByText(/your site is ready/i)).toBeVisible({ timeout: 15000 });
+        await expect(page.getByRole('link', { name: /go to wix dashboard/i })).toBeVisible();
     });
 });

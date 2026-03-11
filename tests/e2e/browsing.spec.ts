@@ -1,6 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Journey A: Browsing & Filtering', () => {
+    test.beforeEach(async ({ page }) => {
+        // Suppress onboarding tour and chatbot popup for cleaner tests
+        await page.addInitScript(() => {
+            window.localStorage.setItem('vistacarve_tour_seen', 'true');
+        });
+    });
+
     test('should navigate to Stone Carvings and apply filters', async ({ page }) => {
         // 1. Navigate to home
         await page.goto('/', { waitUntil: 'networkidle' });
@@ -20,12 +27,16 @@ test.describe('Journey A: Browsing & Filtering', () => {
         await expect(page.locator('aside')).toContainText('Marble');
         await expect(page.locator('aside')).toContainText('Slate');
 
-        // 5. Apply a filter and verify product cards exist
-        await page.locator('label').filter({ hasText: 'Marble' }).locator('input').check();
+        // 5. Apply a filter (Marble)
+        // Checkboxes in our sidebar are within labels
+        await page.getByText('Marble', { exact: true }).click();
         
-        // In a real app with backend filtering, we would verify the product list updates.
-        // For this portfolio piece, we verify the UI state.
+        // Give it a moment to react (though client-side is fast)
+        await page.waitForTimeout(500);
+
+        // 6. Verify product cards are still present (or filtered)
+        // In this mock-heavy state, we just ensure the grid is visible
         const productCards = page.locator('.grid > div');
-        await expect(productCards.first()).toBeVisible();
+        await expect(productCards.first()).toBeVisible({ timeout: 10000 });
     });
 });

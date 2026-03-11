@@ -1,41 +1,229 @@
 # Page snapshot
 
 ```yaml
-- generic:
-  - generic:
+- generic [ref=e1]:
+  - banner:
     - generic:
-      - dialog "Unhandled Runtime Error":
-        - generic:
+      - generic: Welcome to VistaCarve - Premium Custom Details
+      - generic:
+        - link "Help is here 1.800.123.4567":
+          - /url: /help
+        - link "Corporate Pricing":
+          - /url: /reseller
+        - link "Reseller Program":
+          - /url: /reseller
+    - generic:
+      - generic:
+        - link "VistaCarve Logo VistaCarve × Wix Logo":
+          - /url: /
           - generic:
+            - img "VistaCarve Logo"
+          - generic:
+            - generic: VistaCarve
+            - generic: ×
             - generic:
-              - navigation:
-                - button "previous" [disabled]:
-                  - img "previous"
-                - button "next" [disabled]:
-                  - img "next"
-                - generic: 1 of 1 error
-                - generic:
-                  - text: Next.js (14.2.35) is outdated
-                  - link "(learn more)":
-                    - /url: https://nextjs.org/docs/messages/version-staleness
-              - button "Close":
-                - generic:
-                  - img
-            - heading "Unhandled Runtime Error" [level=1]
-            - paragraph:
-              - text: "Error: useSyncExternalStore only works in Client Components. Add the \"use client\" directive at the top of the file to use it. Read more:"
-              - link "https://nextjs.org/docs/messages/react-client-hook-in-server-component":
-                - /url: https://nextjs.org/docs/messages/react-client-hook-in-server-component
+              - img "Wix Logo"
+      - generic:
+        - textbox "Search custom products..."
+        - button:
+          - img
+      - generic:
+        - link "Design Maker":
+          - /url: /design-maker
+          - img
+          - generic: Design Maker
+        - link "Consultation":
+          - /url: /consultation
+          - img
+          - generic: Consultation
+        - link "Portfolio":
+          - /url: /portfolio
+          - img
+          - generic: Portfolio
+        - generic:
+          - img
+          - generic: Sign In
+        - button "Open Cart":
           - generic:
-            - heading "Source" [level=2]
+            - img
+          - generic: Cart
+    - navigation:
+      - list:
+        - listitem:
+          - link "Websites":
+            - /url: /websites
+        - listitem:
+          - link "Wood Carvings":
+            - /url: /shop/wood-carvings
+        - listitem:
+          - link "Metal Engravings":
+            - /url: /shop/metal-engravings
+        - listitem:
+          - link "Stone Carvings":
+            - /url: /shop/stone-carvings
+        - listitem:
+          - link "Corporate Gifts":
+            - /url: /shop/corporate-gifts
+        - listitem:
+          - link "Wedding Decor":
+            - /url: /shop/wedding-decor
+        - listitem:
+          - link "Custom Signage":
+            - /url: /shop/custom-signage
+        - listitem: Deals
+  - main:
+    - generic:
+      - generic:
+        - generic:
+          - link "Home":
+            - /url: /
+          - img
+          - link "Shop":
+            - /url: /shop
+          - img
+          - generic: Wood Carvings
+      - generic:
+        - complementary:
+          - generic:
+            - heading "Filters" [level=2]:
+              - img
+              - text: Filters
             - generic:
               - generic:
-                - link "src/components/product/ProductCard.tsx (13:39) @ useCartStore":
-                  - generic: src/components/product/ProductCard.tsx (13:39) @ useCartStore
-                  - img
-              - generic: "11 | 12 | export default function ProductCard({ product }: ProductCardProps) { > 13 | const { addToCart } = useCartStore(); | ^ 14 | // Extract primary image 15 | const primaryImage = product.media?.mainMedia?.image?.url || \"\"; 16 |"
-            - heading "Call Stack" [level=2]
-            - button "Show collapsed frames"
+                - heading "Material Type" [level=3]
+                - list:
+                  - listitem:
+                    - generic:
+                      - checkbox "Oak"
+                      - text: Oak
+                  - listitem:
+                    - generic:
+                      - checkbox "Walnut"
+                      - text: Walnut
+                  - listitem:
+                    - generic:
+                      - checkbox "Cherry"
+                      - text: Cherry
+                  - listitem:
+                    - generic:
+                      - checkbox "Pine"
+                      - text: Pine
+              - generic:
+                - heading "Size" [level=3]
+                - list:
+                  - listitem:
+                    - generic:
+                      - checkbox "Small (5\"-10\")"
+                      - text: Small (5"-10")
+                  - listitem:
+                    - generic:
+                      - checkbox "Medium (11\"-20\")"
+                      - text: Medium (11"-20")
+                  - listitem:
+                    - generic:
+                      - checkbox "Large (20\"+)"
+                      - text: Large (20"+)
+        - main:
+          - generic:
+            - heading "Wood Carvings" [level=1]
+            - generic: Warm, natural, and timeless wood carvings for your home.
+            - paragraph: 3 Items
+          - generic:
+            - generic:
+              - link "Caribbean Islands Wood New Caribbean Islands Wood $69.99 Includes basic material":
+                - /url: /product/caribbean-islands-wood
+                - generic:
+                  - img "Caribbean Islands Wood"
+                  - generic: New
+                - generic:
+                  - heading "Caribbean Islands Wood" [level=3]
+                - generic:
+                  - generic: $69.99
+                  - generic: Includes basic material
+              - generic:
+                - button "Add to Cart"
+            - generic:
+              - link "Elephant Wood Floor Elephant Wood Floor $149.99 Includes basic material":
+                - /url: /product/elephant-wood-floor
+                - generic:
+                  - img "Elephant Wood Floor"
+                - generic:
+                  - heading "Elephant Wood Floor" [level=3]
+                - generic:
+                  - generic: $149.99
+                  - generic: Includes basic material
+              - generic:
+                - button "Add to Cart"
+            - generic:
+              - link "Sea Board Wood Sea Board Wood $89.99 Includes basic material":
+                - /url: /product/sea-board-wood
+                - generic:
+                  - img "Sea Board Wood"
+                - generic:
+                  - heading "Sea Board Wood" [level=3]
+                - generic:
+                  - generic: $89.99
+                  - generic: Includes basic material
+              - generic:
+                - button "Add to Cart"
+  - contentinfo:
+    - generic:
+      - generic:
+        - generic:
+          - heading "vistacarve." [level=3]
+          - paragraph: From custom wooden signs to metal statues. If you need it carved, we carve it.
+          - paragraph: 1.800.123.4567
+        - generic:
+          - heading "Let Us Help" [level=4]
+          - list:
+            - listitem:
+              - link "My Account":
+                - /url: "#"
+            - listitem:
+              - link "Shipping Options":
+                - /url: "#"
+            - listitem:
+              - link "Help Center":
+                - /url: "#"
+            - listitem:
+              - link "Return Policy":
+                - /url: "#"
+        - generic:
+          - heading "Our Company" [level=4]
+          - list:
+            - listitem:
+              - link "About Us":
+                - /url: "#"
+            - listitem:
+              - link "Careers":
+                - /url: "#"
+            - listitem:
+              - link "Sustainability":
+                - /url: "#"
+            - listitem:
+              - link "Press":
+                - /url: "#"
+        - generic:
+          - generic:
+            - heading "Sign Up For Inspiration" [level=4]
+          - paragraph: Get exclusive offers and creative design tips delivered directly to your inbox.
+          - generic:
+            - textbox "Email address"
+            - button "Sign Up"
+      - generic:
+        - generic:
+          - generic: © 2026 VistaCarve. All rights reserved.
+        - generic:
+          - link "Terms of Use":
+            - /url: /terms
+          - link "Privacy Policy":
+            - /url: /privacy
+  - generic:
+    - button "Open Chat":
+      - generic:
+        - img "Chat"
+  - generic:
+    - alert
   - dialog "Welcome to VistaCarve!" [ref=e2]:
     - button "Close" [active] [ref=e3] [cursor=pointer]: ×
     - banner [ref=e4]: Welcome to VistaCarve!

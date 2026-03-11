@@ -2,386 +2,123 @@
 
 ```yaml
 - generic [ref=e1]:
-  - banner:
-    - generic:
-      - generic: Welcome to VistaCarve - Premium Custom Details
-      - generic:
-        - link "Help is here 1.800.123.4567":
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: Welcome to VistaCarve - Premium Custom Details
+      - generic [ref=e5]:
+        - link "Help is here 1.800.123.4567" [ref=e6] [cursor=pointer]:
           - /url: /help
-        - link "Corporate Pricing":
+        - link "Corporate Pricing" [ref=e7] [cursor=pointer]:
           - /url: /reseller
-        - link "Reseller Program":
+        - link "Reseller Program" [ref=e8] [cursor=pointer]:
           - /url: /reseller
-    - generic:
-      - generic:
-        - link "VistaCarve Logo VistaCarve × Wix Logo":
-          - /url: /
-          - generic:
-            - img "VistaCarve Logo"
-          - generic:
-            - generic: VistaCarve
-            - generic: ×
-            - generic:
-              - img "Wix Logo"
-      - generic:
-        - textbox "Search custom products..."
-        - button:
-          - img
-      - generic:
-        - link "Design Maker":
+    - generic [ref=e9]:
+      - link "VistaCarve Logo VistaCarve × Wix Logo" [ref=e11] [cursor=pointer]:
+        - /url: /
+        - img "VistaCarve Logo" [ref=e13]
+        - generic [ref=e14]:
+          - generic [ref=e15]: VistaCarve
+          - generic [ref=e16]: ×
+          - img "Wix Logo" [ref=e18]
+      - generic [ref=e19]:
+        - textbox "Search custom products..." [ref=e20]
+        - button [ref=e21] [cursor=pointer]:
+          - img [ref=e22]
+      - generic [ref=e25]:
+        - link "Design Maker" [ref=e26] [cursor=pointer]:
           - /url: /design-maker
-          - img
-          - generic: Design Maker
-        - link "Consultation":
+          - img [ref=e27]
+          - generic [ref=e31]: Design Maker
+        - link "Consultation" [ref=e32] [cursor=pointer]:
           - /url: /consultation
-          - img
-          - generic: Consultation
-        - link "Portfolio":
+          - img [ref=e33]
+          - generic [ref=e36]: Consultation
+        - link "Portfolio" [ref=e37] [cursor=pointer]:
           - /url: /portfolio
-          - img
-          - generic: Portfolio
-        - generic:
-          - img
-          - generic: Sign In
-        - button "Open Cart":
-          - generic:
-            - img
-          - generic: Cart
-    - navigation:
-      - list:
-        - listitem:
-          - link "Websites":
+          - img [ref=e38]
+          - generic [ref=e40]: Portfolio
+        - generic [ref=e41] [cursor=pointer]:
+          - img [ref=e42]
+          - generic [ref=e45]: Sign In
+        - button "Open Cart" [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e52]: Cart
+    - navigation [ref=e53]:
+      - list [ref=e54]:
+        - listitem [ref=e55]:
+          - link "Websites" [ref=e56] [cursor=pointer]:
             - /url: /websites
-        - listitem:
-          - link "Wood Carvings":
+        - listitem [ref=e57]:
+          - link "Wood Carvings" [ref=e58] [cursor=pointer]:
             - /url: /shop/wood-carvings
-        - listitem:
-          - link "Metal Engravings":
+        - listitem [ref=e59]:
+          - link "Metal Engravings" [ref=e60] [cursor=pointer]:
             - /url: /shop/metal-engravings
-        - listitem:
-          - link "Stone Carvings":
+        - listitem [ref=e61]:
+          - link "Stone Carvings" [active] [ref=e62] [cursor=pointer]:
             - /url: /shop/stone-carvings
-        - listitem:
-          - link "Corporate Gifts":
+        - listitem [ref=e63]:
+          - link "Corporate Gifts" [ref=e64] [cursor=pointer]:
             - /url: /shop/corporate-gifts
-        - listitem:
-          - link "Wedding Decor":
+        - listitem [ref=e65]:
+          - link "Wedding Decor" [ref=e66] [cursor=pointer]:
             - /url: /shop/wedding-decor
-        - listitem:
-          - link "Custom Signage":
+        - listitem [ref=e67]:
+          - link "Custom Signage" [ref=e68] [cursor=pointer]:
             - /url: /shop/custom-signage
-        - listitem: Deals
-  - main:
-    - generic:
-      - generic:
-        - generic:
-          - heading "If you need Wood Carvings Metal Engravings Stone & Marble we carve it." [level=1]:
-            - generic: If you need
-            - generic:
-              - generic:
-                - generic:
-                  - generic: Wood Carvings
-                - generic:
-                  - generic: Metal Engravings
-                - generic:
-                  - generic: Stone & Marble
-            - generic: we carve it.
-          - paragraph: From custom-engraved wooden signs to beautiful stone photo gifts, we've got the perfect piece for you. Explore our top materials starting at just $29.
-          - generic:
-            - button "Try for $29"
-            - button "Bestselling Carvings"
-            - button "Design Services"
-      - generic:
-        - generic:
-          - generic:
-            - generic:
-              - img
-            - generic:
-              - heading "Products you'll love" [level=4]
-              - paragraph: The right materials at great prices
-          - generic:
-            - generic:
-              - img
-            - generic:
-              - heading "Free Design Maker" [level=4]
-              - paragraph: Get your custom carving in minutes
-          - generic:
-            - generic:
-              - img
-            - generic:
-              - heading "Help when you need it" [level=4]
-              - paragraph: Live chat with us or take a tour
-      - generic:
-        - heading "The VistaCarve Process" [level=2]
-        - generic:
-          - generic:
-            - generic: "1"
-            - heading "Upload Your Design" [level=3]
-            - paragraph: Send us your image, logo, or text. Our design maker helps you position it perfectly on the material of your choice.
-          - generic:
-            - generic: "2"
-            - heading "We Carve It" [level=3]
-            - paragraph: Our modern, state-of-the-art precision tools expertly carve your design into premium wood, authentic stone, or sleek metal.
-          - generic:
-            - generic: "3"
-            - heading "Shipped to You" [level=3]
-            - paragraph: Carefully packaged and shipped quickly right to your door. Enjoy your stunning, one-of-a-kind custom piece forever!
-      - generic:
-        - generic:
-          - generic:
-            - heading "Master Craftsmanship Meets Modern Technology" [level=2]
-            - paragraph: At VistaCarve, we don't just produce items; we create heirlooms. Our unique blend of laser-precision technology and traditional artisan finishing ensures every piece is distinct, durable, and breathtakingly beautiful.
-            - generic:
-              - generic:
-                - generic:
-                  - img
-                - generic:
-                  - heading "Premium Sustainable Materials" [level=4]
-                  - paragraph: We source only the finest, ethically harvested wood and natural stone top-tier quality that lasts generations.
-              - generic:
-                - generic:
-                  - img
-                - generic:
-                  - heading "Lightning Fast Turnaround" [level=4]
-                  - paragraph: Most custom orders are carved, finished, and shipped within 48 hours of you approving the design proof.
-              - generic:
-                - generic:
-                  - img
-                - generic:
-                  - heading "100% Satisfaction Guarantee" [level=4]
-                  - paragraph: If you aren't completely thrilled with your masterpiece, our dedicated support team will make it right, whatever it takes.
-          - generic:
-            - img "Craftsmanship"
-            - generic:
-              - generic:
-                - paragraph: "\"Every carve tells a story. Let us help you tell yours.\""
-      - generic:
-        - generic:
-          - heading "What Our Customers Say" [level=2]
-          - generic:
-            - generic:
-              - generic: ★★★★★
-              - paragraph: "\"The wood sign we ordered for our cabin exceeded all expectations. The detail and depth of the carve are simply stunning. Highly recommended!\""
-              - generic:
-                - generic: JD
-                - generic:
-                  - heading "John D." [level=4]
-                  - paragraph: Custom Wood Sign
-            - generic:
-              - generic: ★★★★★
-              - paragraph: "\"Got a metal engraving for my husband's anniversary gift. It looks so premium and came exactly like the preview. Will definitely be ordering again.\""
-              - generic:
-                - generic: SM
-                - generic:
-                  - heading "Sarah M." [level=4]
-                  - paragraph: Metal Engraving
-            - generic:
-              - generic: ★★★★★
-              - paragraph: "\"The marble photo plaque is breathtaking. It's a heavy, beautiful piece that sits perfectly on our mantle. Customer service was also top-notch when I needed help.\""
-              - generic:
-                - generic: TR
-                - generic:
-                  - heading "Tommy R." [level=4]
-                  - paragraph: Stone & Marble
-      - generic:
-        - generic:
-          - generic:
-            - heading "Explore all categories" [level=2]
-            - link "See all":
-              - /url: /shop
-              - text: See all
-              - img
-          - region:
-            - generic:
-              - generic:
-                - generic:
-                  - group:
-                    - generic:
-                      - generic:
-                        - link "Premium Oak Sign Premium Oak Sign $49.99 Includes basic material":
-                          - /url: /product/premium-oak-sign
-                          - generic:
-                            - img "Premium Oak Sign"
-                          - generic:
-                            - heading "Premium Oak Sign" [level=3]
-                          - generic:
-                            - generic: $49.99
-                            - generic: Includes basic material
-                        - generic:
-                          - button "Add to Cart"
-                  - group:
-                    - generic:
-                      - generic:
-                        - link "Custom Metal Plaque Custom Metal Plaque $79.99 Includes basic material":
-                          - /url: /product/custom-metal-plaque
-                          - generic:
-                            - img "Custom Metal Plaque"
-                          - generic:
-                            - heading "Custom Metal Plaque" [level=3]
-                          - generic:
-                            - generic: $79.99
-                            - generic: Includes basic material
-                        - generic:
-                          - button "Add to Cart"
-                  - group:
-                    - generic:
-                      - generic:
-                        - link "Marble Memorial Stone Marble Memorial Stone $129.99 Includes basic material":
-                          - /url: /product/marble-memorial
-                          - generic:
-                            - img "Marble Memorial Stone"
-                          - generic:
-                            - heading "Marble Memorial Stone" [level=3]
-                          - generic:
-                            - generic: $129.99
-                            - generic: Includes basic material
-                        - generic:
-                          - button "Add to Cart"
-                  - group:
-                    - generic:
-                      - generic:
-                        - link "Walnut Desk Nameplate Walnut Desk Nameplate $34.99 Includes basic material":
-                          - /url: /product/walnut-nameplate
-                          - generic:
-                            - img "Walnut Desk Nameplate"
-                          - generic:
-                            - heading "Walnut Desk Nameplate" [level=3]
-                          - generic:
-                            - generic: $34.99
-                            - generic: Includes basic material
-                        - generic:
-                          - button "Add to Cart"
-                  - group:
-                    - generic:
-                      - generic:
-                        - link "Granite Address Sign Granite Address Sign $89.99 Includes basic material":
-                          - /url: /product/granite-address
-                          - generic:
-                            - img "Granite Address Sign"
-                          - generic:
-                            - heading "Granite Address Sign" [level=3]
-                          - generic:
-                            - generic: $89.99
-                            - generic: Includes basic material
-                        - generic:
-                          - button "Add to Cart"
-              - generic:
-                - button "Previous slide" [disabled]:
-                  - img
-                  - generic: Previous slide
-                - button "Next slide" [disabled]:
-                  - img
-                  - generic: Next slide
-        - generic:
-          - link "Wood Carvings Wood.":
-            - /url: /shop/wood
-            - img "Wood Carvings"
-            - generic:
-              - heading "Wood." [level=1]
-          - link "Metal Engravings Metal":
-            - /url: /shop/metal
-            - img "Metal Engravings"
-            - generic:
-              - heading "Metal" [level=1]
-          - link "Stone & Marble S T O N E":
-            - /url: /shop/stone
-            - img "Stone & Marble"
-            - generic:
-              - generic: S
-              - generic: T
-              - generic: O
-              - generic: "N"
-              - generic: E
-      - generic:
-        - heading "Frequently Asked Questions" [level=2]
-        - paragraph: Have a question? We're here to help.
-        - generic:
-          - generic:
-            - heading "What file types do you accept for custom designs? ꜜ" [level=3]:
-              - text: What file types do you accept for custom designs?
-              - generic: ꜜ
-            - paragraph: We highly recommend high-resolution PNG, JPG, or SVG files. For the sharpest laser engraving, pure black-and-white vector files (SVG, EPS, AI) produce the best results, but our design maker easily works with standard image files too!
-          - generic:
-            - heading "Can I see a proof before my item is carved? ꜜ" [level=3]:
-              - text: Can I see a proof before my item is carved?
-              - generic: ꜜ
-            - paragraph: Absolutely! Our online design maker gives you an interactive, real-time 3D preview of what your finished piece will look like. For deeply custom orders or corporate batches, our design team will manually email you a final digital proof for approval.
-          - generic:
-            - heading "Do you offer bulk discounts for corporate gifts or weddings? ꜜ" [level=3]:
-              - text: Do you offer bulk discounts for corporate gifts or weddings?
-              - generic: ꜜ
-            - paragraph: Yes, we do! We have robust reseller and corporate pricing programs tailored for large-volume orders. Please visit our "Corporate Pricing" page from the top navigation menu or chat with us for a custom quote.
-          - generic:
-            - heading "Is the wood you use responsibly sourced? ꜜ" [level=3]:
-              - text: Is the wood you use responsibly sourced?
-              - generic: ꜜ
-            - paragraph: We take sustainability seriously. All of our wood blocks and plaques are sourced from FSC-certified forests, ensuring that every piece we carve supports responsible forestry practices and environmental conservation.
-  - contentinfo:
-    - generic:
-      - generic:
-        - generic:
-          - heading "vistacarve." [level=3]
-          - paragraph: From custom wooden signs to metal statues. If you need it carved, we carve it.
-          - paragraph: 1.800.123.4567
-        - generic:
-          - heading "Let Us Help" [level=4]
-          - list:
-            - listitem:
-              - link "My Account":
+        - listitem [ref=e69] [cursor=pointer]: Deals
+  - main [ref=e70]
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - heading "vistacarve." [level=3] [ref=e77]
+          - paragraph [ref=e78]: From custom wooden signs to metal statues. If you need it carved, we carve it.
+          - paragraph [ref=e79]: 1.800.123.4567
+        - generic [ref=e80]:
+          - heading "Let Us Help" [level=4] [ref=e81]
+          - list [ref=e82]:
+            - listitem [ref=e83]:
+              - link "My Account" [ref=e84] [cursor=pointer]:
                 - /url: "#"
-            - listitem:
-              - link "Shipping Options":
+            - listitem [ref=e85]:
+              - link "Shipping Options" [ref=e86] [cursor=pointer]:
                 - /url: "#"
-            - listitem:
-              - link "Help Center":
+            - listitem [ref=e87]:
+              - link "Help Center" [ref=e88] [cursor=pointer]:
                 - /url: "#"
-            - listitem:
-              - link "Return Policy":
+            - listitem [ref=e89]:
+              - link "Return Policy" [ref=e90] [cursor=pointer]:
                 - /url: "#"
-        - generic:
-          - heading "Our Company" [level=4]
-          - list:
-            - listitem:
-              - link "About Us":
+        - generic [ref=e91]:
+          - heading "Our Company" [level=4] [ref=e92]
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - link "About Us" [ref=e95] [cursor=pointer]:
                 - /url: "#"
-            - listitem:
-              - link "Careers":
+            - listitem [ref=e96]:
+              - link "Careers" [ref=e97] [cursor=pointer]:
                 - /url: "#"
-            - listitem:
-              - link "Sustainability":
+            - listitem [ref=e98]:
+              - link "Sustainability" [ref=e99] [cursor=pointer]:
                 - /url: "#"
-            - listitem:
-              - link "Press":
+            - listitem [ref=e100]:
+              - link "Press" [ref=e101] [cursor=pointer]:
                 - /url: "#"
-        - generic:
-          - generic:
-            - heading "Sign Up For Inspiration" [level=4]
-          - paragraph: Get exclusive offers and creative design tips delivered directly to your inbox.
-          - generic:
-            - textbox "Email address"
-            - button "Sign Up"
-      - generic:
-        - generic:
-          - generic: © 2026 VistaCarve. All rights reserved.
-        - generic:
-          - link "Terms of Use":
+        - generic [ref=e102]:
+          - heading "Sign Up For Inspiration" [level=4] [ref=e104]
+          - paragraph [ref=e117]: Get exclusive offers and creative design tips delivered directly to your inbox.
+          - generic [ref=e118]:
+            - textbox "Email address" [ref=e119]
+            - button "Sign Up" [ref=e120] [cursor=pointer]
+      - generic [ref=e121]:
+        - generic [ref=e123]: © 2026 VistaCarve. All rights reserved.
+        - generic [ref=e124]:
+          - link "Terms of Use" [ref=e125] [cursor=pointer]:
             - /url: /terms
-          - link "Privacy Policy":
+          - link "Privacy Policy" [ref=e126] [cursor=pointer]:
             - /url: /privacy
-  - generic:
-    - button "Open Chat":
-      - generic:
-        - img "Chat"
-  - generic:
-    - alert
-  - dialog "Welcome to VistaCarve!" [ref=e2]:
-    - button "Close" [active] [ref=e3] [cursor=pointer]: ×
-    - banner [ref=e4]: Welcome to VistaCarve!
-    - generic [ref=e5]: Let us take you on a quick tour of our updated premium layout.
-    - contentinfo [ref=e6]:
-      - generic [ref=e7]: 1 of 4
-      - generic [ref=e8]:
-        - button "← Previous" [disabled]
-        - button "Next →" [ref=e9] [cursor=pointer]
-  - img
+  - button "Open Chat" [ref=e128] [cursor=pointer]:
+    - img "Chat" [ref=e130]
+  - alert [ref=e134]
 ```

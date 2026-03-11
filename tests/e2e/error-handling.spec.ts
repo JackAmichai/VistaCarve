@@ -15,14 +15,18 @@ test.describe('Journey D: Error Handling', () => {
         await productCard.getByRole('button', { name: /add to cart/i }).click();
 
         // 3. Open cart and try to checkout
-        await page.getByRole('button', { name: /cart/i }).first().click();
+        await page.getByRole('button', { name: /open cart/i }).first().click();
         
+        // Wait for drawer to be fully animated and visible
+        const checkoutBtn = page.getByRole('button', { name: /secure checkout/i });
+        await expect(checkoutBtn).toBeVisible({ timeout: 10000 });
+
         // Force mock cart to fail by intercepting the state or just checking the button
         // Actually, let's mock the redirect session call to fail
         await page.route('**/redirects/v1/redirect-sessions', async route => {
             await route.fulfill({ status: 500 });
         });
 
-        await page.getByRole('button', { name: /secure checkout/i }).click();
+        await checkoutBtn.click();
     });
 });

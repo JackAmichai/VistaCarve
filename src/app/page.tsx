@@ -66,15 +66,21 @@ export default async function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 rounded-full font-bold px-8 h-14 text-base hover:scale-105 transition-transform shadow-lg">
-              Try for $29
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-primary rounded-full font-bold px-8 h-14 text-base bg-white/10 backdrop-blur-sm hover:scale-105 transition-all">
-              Bestselling Carvings
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-primary rounded-full font-bold px-8 h-14 text-base bg-white/10 backdrop-blur-sm hover:scale-105 transition-all">
-              Design Services
-            </Button>
+            <Link href="/shop">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 rounded-full font-bold px-8 h-14 text-base hover:scale-105 transition-transform shadow-lg">
+                Try for $29
+              </Button>
+            </Link>
+            <Link href="/shop">
+              <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-primary rounded-full font-bold px-8 h-14 text-base bg-white/10 backdrop-blur-sm hover:scale-105 transition-all w-full sm:w-auto">
+                Bestselling Carvings
+              </Button>
+            </Link>
+            <Link href="/consultation">
+              <Button size="lg" variant="outline" className="border-white/50 text-white hover:bg-white hover:text-primary rounded-full font-bold px-8 h-14 text-base bg-white/10 backdrop-blur-sm hover:scale-105 transition-all w-full sm:w-auto">
+                Design Services
+              </Button>
+            </Link>
           </div>
         </div>
       </MotionSection>

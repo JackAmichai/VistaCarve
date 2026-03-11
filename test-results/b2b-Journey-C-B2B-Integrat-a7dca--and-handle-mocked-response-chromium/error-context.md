@@ -78,13 +78,28 @@
           - img
           - generic: vistacarve x wix
         - generic:
-          - button "← Back"
           - generic:
-            - heading "What's the name of your business?" [level=2]
-            - paragraph: Don't worry, you can change this later in the Wix Editor.
-          - textbox "e.g., John's Custom Woodworks": Test Business
+            - heading "What kind of website do you need?" [level=2]
+            - paragraph: This helps us pre-configure your Wix editor with the right templates and apps.
           - generic:
-            - button "Generate My Site"
+            - button "Online Store Sell physical or digital goods":
+              - img
+              - heading "Online Store" [level=3]
+              - paragraph: Sell physical or digital goods
+            - button "Portfolio Showcase your artistic carvings":
+              - img
+              - heading "Portfolio" [level=3]
+              - paragraph: Showcase your artistic carvings
+            - button "Local Business Attract clients to your shop":
+              - img
+              - heading "Local Business" [level=3]
+              - paragraph: Attract clients to your shop
+            - button "Landing Page A simple one-page site":
+              - img
+              - heading "Landing Page" [level=3]
+              - paragraph: A simple one-page site
+          - generic:
+            - button "Continue" [disabled]
   - contentinfo:
     - generic:
       - generic:
