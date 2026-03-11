@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import wixClient from "@/lib/wixClient";
 
+import Cookies from "js-cookie";
+
 interface CartState {
     cart: any | null;
     isLoading: boolean;
@@ -24,6 +26,16 @@ export const useCartStore = create<CartState>((set) => ({
             set({ cart: current, isLoading: false });
         } catch (err: any) {
             console.error("Failed to fetch cart", err);
+
+            // If the error is an Auth error (400 Bad Request) due to invalid session cookie,
+            // clear the session cookie and reload to spawn a fresh visitor session.
+            if (typeof window !== "undefined" && (err.message?.includes("400") || err.message?.toLowerCase().includes("bad request") || err.details?.applicationError?.code === 400)) {
+                console.warn("Detected 400 Bad Request. Clearing invalid session cookie...");
+                Cookies.remove("session");
+                window.location.reload();
+                return;
+            }
+
             // For a fresh session, fetching cart might return 404 until cart is created
             set({ error: err.message || "Failed to fetch cart", isLoading: false });
         }

@@ -4,7 +4,7 @@
  */
 
 export async function getWixAccessToken() {
-    const appId = process.env.NEXT_PUBLIC_WIX_APP_ID || process.env.NEXT_PUBLIC_WIX_CLIENT_ID || process.env.WIX_APP_ID;
+    const appId = process.env.NEXT_PUBLIC_WIX_APP_ID || process.env.NEXT_PUBLIC_WIX_CLIENT_ID || process.env.WIX_APP_ID || "1c5c13cd-d1e1-4d8d-a950-b9b600033564";
     const appSecret = process.env.WIX_APP_SECRET;
 
     if (!appId || !appSecret) {

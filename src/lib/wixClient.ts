@@ -8,8 +8,8 @@ import { services } from "@wix/bookings";
 import { items } from "@wix/data";
 import Cookies from "js-cookie";
 
-const clientId = process.env.NEXT_PUBLIC_WIX_APP_ID || process.env.NEXT_PUBLIC_WIX_CLIENT_ID;
-const siteId = process.env.NEXT_PUBLIC_WIX_SITE_ID;
+const clientId = process.env.NEXT_PUBLIC_WIX_APP_ID || process.env.NEXT_PUBLIC_WIX_CLIENT_ID || "1c5c13cd-d1e1-4d8d-a950-b9b600033564";
+const siteId = process.env.NEXT_PUBLIC_SITE_ID || process.env.NEXT_PUBLIC_WIX_SITE_ID;
 
 if (!clientId) {
   console.error("CRITICAL: Neither NEXT_PUBLIC_WIX_APP_ID nor NEXT_PUBLIC_WIX_CLIENT_ID is defined in environment variables!");
