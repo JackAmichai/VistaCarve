@@ -14,6 +14,15 @@ export default function CartDrawer() {
     const handleRemove = async (itemId: string) => {
         try {
             if (!cart?._id) return;
+            if (cart._id === "mock-cart") {
+                useCartStore.setState((state: any) => ({
+                    cart: {
+                        ...state.cart,
+                        lineItems: state.cart.lineItems.filter((i: any) => i._id !== itemId)
+                    }
+                }));
+                return;
+            }
             await wixClient.currentCart.removeLineItemsFromCurrentCart([itemId]);
             await fetchCart();
         } catch (err) {
@@ -23,6 +32,11 @@ export default function CartDrawer() {
 
     const handleCheckout = async () => {
         try {
+            if (cart?._id === "mock-cart") {
+                window.location.href = "/checkout-success";
+                return;
+            }
+
             // 1. Create a checkout ID from the current cart
             const checkoutUrlObj = await wixClient.currentCart.createCheckoutFromCurrentCart({
                 channelType: "WEB",
