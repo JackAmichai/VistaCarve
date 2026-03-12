@@ -12,8 +12,8 @@ export const revalidate = 60;
 export default async function ProductPage({ params }: { params: { slug: string } }) {
     const { slug } = params;
 
-    let product = null;
-    let recommended = [];
+    let product: any = null;
+    let recommended: any[] = [];
 
     try {
         const prodResp = await wixClient.products
@@ -27,7 +27,14 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
             // Fetch some recommended items
             const recResp = await wixClient.products.queryProducts().limit(8).find();
-            recommended = recResp.items.filter((p: any) => p._id !== product?._id).slice(0, 5);
+            
+            // Safety check: ensure recResp.items is an array before filtering
+            if (recResp.items && Array.isArray(recResp.items)) {
+                recommended = recResp.items.filter((p: any) => p._id !== product?._id).slice(0, 5);
+            } else {
+                console.warn("Wix API returned non-array items for recommendations:", recResp.items);
+                recommended = [];
+            }
         }
     } catch (err) {
         console.warn("Failed to fetch product from Wix or token invalid. Falling back to mocks...", err);

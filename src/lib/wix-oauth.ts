@@ -4,11 +4,17 @@
  */
 
 export async function getWixAccessToken() {
+    // Priority 1: Use direct API key if available (common for B2B/Partner integrations)
+    if (process.env.WIX_API_KEY) {
+        return process.env.WIX_API_KEY;
+    }
+
+    // Priority 2: Standard OAuth Client Credentials flow
     const appId = process.env.NEXT_PUBLIC_WIX_APP_ID || process.env.NEXT_PUBLIC_WIX_CLIENT_ID || process.env.WIX_APP_ID || "1c5c13cd-d1e1-4d8d-a950-b9b600033564";
     const appSecret = process.env.WIX_APP_SECRET;
 
     if (!appId || !appSecret) {
-        throw new Error("Missing Wix App ID or Secret in environment variables (check NEXT_PUBLIC_WIX_APP_ID and WIX_APP_SECRET)");
+        throw new Error("Missing Wix credentials (WIX_API_KEY or WIX_APP_ID + WIX_APP_SECRET)");
     }
 
     try {
@@ -27,14 +33,20 @@ export async function getWixAccessToken() {
 
         if (!response.ok) {
             const errorText = await response.text();
-            console.warn("[Wix OAuth] Token generation failed:", response.status, errorText);
-            throw new Error(`Wix Auth Error (${response.status}): ${errorText || "Failed to generate access token"}`);
+            let errorDetail = errorText;
+            try {
+                const errorJson = JSON.parse(errorText);
+                errorDetail = errorJson.message || errorJson.error_description || errorText;
+            } catch (e) {}
+            
+            console.warn("[Wix OAuth] Token generation failed:", response.status, errorDetail);
+            throw new Error(`Wix Auth Error (${response.status}): ${errorDetail || "Failed to generate access token"}`);
         }
 
         const data = await response.json();
         return data.access_token;
     } catch (error) {
-        console.warn("[Wix OAuth] Error:", error);
+        console.error("[Wix OAuth] Unexpected Error:", error);
         throw error;
     }
 }

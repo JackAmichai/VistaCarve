@@ -13,11 +13,13 @@ export default function CreateWebsiteWizard() {
     const [siteType, setSiteType] = useState("");
     const [provisionProgress, setProvisionProgress] = useState(0);
     const [dashboardUrl, setDashboardUrl] = useState("https://manage.wix.com/");
+    const [error, setError] = useState<string | null>(null);
 
     // Handle Wix Site Provisioning
     const handleCreateSite = async () => {
         setStep(3);
         setProvisionProgress(0);
+        setError(null);
 
         // Simulate progress bar UI
         const interval = setInterval(() => {
@@ -36,13 +38,14 @@ export default function CreateWebsiteWizard() {
                     setStep(4);
                 }, 500);
             } else {
-                alert(`Provisioning failed: ${result.error || "Unknown server error"}. Please verify your Wix App ID and Secret are correct and published.`);
-                setStep(2);
+                setError(result.error || "Unknown server error");
+                setStep(5); // Error state
                 clearInterval(interval);
             }
-        } catch (err) {
+        } catch (err: any) {
             console.error(err);
-            setStep(2);
+            setError(err.message || "A network error occurred. Please try again.");
+            setStep(5);
             clearInterval(interval);
         }
     };
@@ -177,6 +180,33 @@ export default function CreateWebsiteWizard() {
                             </Link>
                             <Button variant="outline" onClick={() => setStep(1)} className="w-full rounded-full h-14 text-lg font-bold text-black bg-transparent border-gray-300">
                                 Create Another Site
+                            </Button>
+                        </div>
+                    </div>
+                )}
+
+                {/* STEP 5: Error Status */}
+                {step === 5 && (
+                    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 text-center py-8">
+                        <div className="w-24 h-24 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-8">
+                            <svg fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-12 h-12"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+                        </div>
+                        <h2 className="text-3xl font-bold text-black mb-4 font-serif">Connection Failed</h2>
+                        <div className="bg-red-50 p-6 rounded-2xl border border-red-100 max-w-lg mx-auto mb-8">
+                            <p className="text-red-800 font-medium">
+                                {error || "Failed to connect to Wix services."}
+                            </p>
+                            <p className="text-red-600 text-sm mt-2">
+                                Please check your Wix API Key and Secret configuration in your environment variables and ensure the app is published.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col gap-4 max-w-md mx-auto">
+                            <Button onClick={handleCreateSite} className="w-full rounded-full bg-black hover:bg-gray-800 h-14 text-lg font-bold">
+                                Try Again
+                            </Button>
+                            <Button variant="outline" onClick={() => setStep(2)} className="w-full rounded-full h-14 text-lg font-bold text-black bg-transparent border-gray-300">
+                                Back to Details
                             </Button>
                         </div>
                     </div>
