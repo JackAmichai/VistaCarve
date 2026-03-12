@@ -13,10 +13,12 @@ export default async function PortfolioPage() {
         const response = await wixClient.items.query("Portfolio").find();
         portfolioItems = response.items || [];
     } catch (err: any) {
-        console.error("Failed to fetch Wix CMS Portfolio items:", err);
-        error = err.message;
+        console.warn("[PortfolioPage] Wix CMS Portfolio items not available, loading mock gallery.");
+        // Mock fallback is already handled below by checking length
+    }
 
-        // Mock fallback if the CMS collection isn't created or published yet
+    // Mock fallback if the CMS collection isn't created or published yet or if API failed
+    if (!portfolioItems || portfolioItems.length === 0) {
         portfolioItems = [
             {
                 _id: "mock1",
@@ -40,7 +42,7 @@ export default async function PortfolioPage() {
                 _id: "mock3",
                 data: {
                     title: "Architectural Wood Panel",
-                    description: "Large scale CNC routed wood paneling for a luxury hotel lobby.",
+                    description: "Large scale CNC routed wood paneling for a hotel lobby.",
                     image: "/images/wood_bg.jpg",
                     category: "Architectural"
                 }
@@ -49,7 +51,7 @@ export default async function PortfolioPage() {
                 _id: "mock4",
                 data: {
                     title: "Industrial Maker Plate",
-                    description: "Heavy-duty etched stainless steel branding plate for custom machinery.",
+                    description: "Heavy-duty etched stainless steel branding plate for machinery.",
                     image: "/images/metal1.jpg",
                     category: "Industrial"
                 }

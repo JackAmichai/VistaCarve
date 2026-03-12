@@ -111,7 +111,25 @@ export default async function CategoryPage({ params }: { params: { category: str
             }
         }
     } catch (err) {
-        console.warn("Failed to fetch category data", err);
+        console.warn("[CategoryPage] Failed to fetch category data from Wix, loading generic mock:", err);
+    }
+
+    // SAFETY FALLBACK for demo: If collection still not found, search in mock list
+    if (!collection) {
+        const fallbackCategories = [
+            { slug: "wood-carvings", name: "Wood Carvings", desc: "Premium wood carvings." },
+            { slug: "metal-engravings", name: "Metal Engravings", desc: "Industrial metal engravings." },
+            { slug: "stone-carvings", name: "Stone & Marble", desc: "Natural stone masterpieces." },
+            { slug: "corporate-gifts", name: "Corporate Gifts", desc: "Bespoke corporate items." },
+            { slug: "wedding-decor", name: "Wedding Decor", desc: "Timeless wedding carvings." },
+            { slug: "custom-signage", name: "Custom Signage", desc: "Branded custom signage." },
+        ];
+        
+        const found = fallbackCategories.find(c => c.slug === category);
+        if (found) {
+            collection = { _id: "mock-" + found.slug, name: found.name, description: found.desc };
+            // Populate with some generic products if needed, or keep page empty but working
+        }
     }
 
     if (!collection) {

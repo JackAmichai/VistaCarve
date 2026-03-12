@@ -17,14 +17,24 @@ export default async function HomePage() {
     console.warn("Failed to fetch products from Wix, loading local mocks:", err);
   }
 
-  // Fallback products for demo/testing if Wix is not connected
-  if (allProducts.length === 0) {
+  // Fallback products for demo/testing if Wix is not connected or returns an error
+  if (!allProducts || allProducts.length === 0) {
     allProducts = [
       { _id: "m1", name: "Premium Oak Sign", slug: "premium-oak-sign", priceData: { formatted: { price: "$49.99" } }, media: { mainMedia: { image: { url: "/images/wood/carribian islands wood.png" } } } },
       { _id: "m2", name: "Custom Metal Plaque", slug: "custom-metal-plaque", priceData: { formatted: { price: "$79.99" } }, media: { mainMedia: { image: { url: "/images/metal/dog metal.png" } } } },
       { _id: "m3", name: "Marble Memorial Stone", slug: "marble-memorial", priceData: { formatted: { price: "$129.99" } }, media: { mainMedia: { image: { url: "/images/marble/Greek marbel.png" } } } },
       { _id: "m4", name: "Walnut Desk Nameplate", slug: "walnut-nameplate", priceData: { formatted: { price: "$34.99" } }, media: { mainMedia: { image: { url: "/images/wood/sea board wood.png" } } } },
       { _id: "m5", name: "Granite Address Sign", slug: "granite-address", priceData: { formatted: { price: "$89.99" } }, media: { mainMedia: { image: { url: "/images/marble/Roman pillars.png" } } } },
+      { _id: "m6", name: "Executive Pen Box", slug: "executive-pen-box", priceData: { formatted: { price: "$59.99" } }, media: { mainMedia: { image: { url: "/images/corporate/pen gift.png" } } } },
+      { _id: "m7", name: "Deer Corporate Award", slug: "deer-statue-award", priceData: { formatted: { price: "$149.99" } }, media: { mainMedia: { image: { url: "/images/corporate/deer gift.png" } } } },
+      { _id: "m8", name: "Jesus Wedding Carving", slug: "jesus-wedding-carving", priceData: { formatted: { price: "$89.99" } }, media: { mainMedia: { image: { url: "/images/wedding/Jesus wedding.png" } } } },
+      { _id: "m9", name: "Metal Lizard Sculpture", slug: "metal-lizzard", priceData: { formatted: { price: "$64.99" } }, media: { mainMedia: { image: { url: "/images/metal/Lizzard.png" } } } },
+      { _id: "m10", name: "Stone Violin Plaque", slug: "stone-violin", priceData: { formatted: { price: "$179.99" } }, media: { mainMedia: { image: { url: "/images/marble/כינור אבן.png" } } } },
+      { _id: "m11", name: "Modern Office Sign", slug: "modern-office-sign", priceData: { formatted: { price: "$129.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_13kg8l13kg8l13kg.png" } } } },
+      { _id: "m12", name: "Boutique Wood Sign", slug: "boutique-wood-sign", priceData: { formatted: { price: "$119.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_7ms8v97ms8v97ms8.png" } } } },
+      { _id: "m13", name: "Premium Acrylic Sign", slug: "premium-acrylic-sign", priceData: { formatted: { price: "$159.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_a3uliwa3uliwa3ul.png" } } } },
+      { _id: "m14", name: "Glass Effect Sign", slug: "glass-effect-sign", priceData: { formatted: { price: "$199.99" } }, media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_u5l3alu5l3alu5l3.png" } } } },
+      { _id: "m15", name: "Roman Pillars Plaque", slug: "roman-pillars-plaque", priceData: { formatted: { price: "$159.99" } }, media: { mainMedia: { image: { url: "/images/marble/Roman pillars.png" } } } },
     ];
   }
 
