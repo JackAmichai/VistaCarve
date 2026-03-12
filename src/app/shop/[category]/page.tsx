@@ -111,7 +111,7 @@ export default async function CategoryPage({ params }: { params: { category: str
             }
         }
     } catch (err) {
-        console.warn("[CategoryPage] Failed to fetch category data from Wix, loading generic mock:", err);
+        // Silently fail and fallback to mocks
     }
 
     // SAFETY FALLBACK for demo: If collection still not found, search in mock list

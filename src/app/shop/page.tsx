@@ -11,7 +11,7 @@ export default async function ShopPage() {
         const response = await wixClient.collections.queryCollections().find();
         collections = response.items || [];
     } catch (err) {
-        console.warn("[ShopPage] Failed to fetch collections from Wix, loading mock categories:", err);
+        // Silently fail and fallback to mocks
     }
 
     // Fallback categories for demo/testing if Wix is not connected

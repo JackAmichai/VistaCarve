@@ -23,7 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     const originalPrice = priceObj?.formatted?.discountedPrice;
 
     return (
-        <Card className="h-full flex flex-col border-none shadow-none bg-transparent group cursor-pointer overflow-hidden rounded-xl glass-card hover:shadow-2xl transition-all duration-500 animate-fade-in-up">
+        <Card className="h-full flex flex-col border-none shadow-none bg-transparent group cursor-pointer overflow-hidden rounded-xl glass-card hover:shadow-2xl transition-all duration-500">
             <Link href={`/product/${product.slug}`} className="flex-1 flex flex-col">
                 {/* Image Stage */}
                 <div className="relative w-full aspect-[4/3] bg-black/20 rounded-xl overflow-hidden mb-2 border-b border-white/10">

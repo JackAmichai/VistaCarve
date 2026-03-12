@@ -15,9 +15,11 @@ if (!clientId) {
   console.error("CRITICAL: Neither NEXT_PUBLIC_WIX_APP_ID nor NEXT_PUBLIC_WIX_CLIENT_ID is defined in environment variables!");
 }
 
+/*
 if (siteId) {
   console.log(`[Wix Client] Initializing for Site ID: ${siteId}`);
 }
+*/
 
 const wixClient = createClient({
   modules: {

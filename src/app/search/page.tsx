@@ -26,8 +26,7 @@ export default function SearchPage() {
 
                 setProducts(response.items || []);
             } catch (error) {
-                console.warn("[SearchPage] Search failed, loading mock results:", error);
-                // Fallback mock results for demo
+                // Silently fail and fallback to mocks
                 setProducts([
                     { _id: "m1", name: "Premium Oak Sign", slug: "premium-oak-sign", priceData: { formatted: { price: "$49.99" } }, media: { mainMedia: { image: { url: "/images/wood/carribian islands wood.png" } } } },
                     { _id: "m2", name: "Custom Metal Plaque", slug: "custom-metal-plaque", priceData: { formatted: { price: "$79.99" } }, media: { mainMedia: { image: { url: "/images/metal/dog metal.png" } } } },

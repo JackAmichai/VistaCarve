@@ -13,8 +13,7 @@ export default async function PortfolioPage() {
         const response = await wixClient.items.query("Portfolio").find();
         portfolioItems = response.items || [];
     } catch (err: any) {
-        console.warn("[PortfolioPage] Wix CMS Portfolio items not available, loading mock gallery.");
-        // Mock fallback is already handled below by checking length
+        // Silently fail and fallback to mocks
     }
 
     // Mock fallback if the CMS collection isn't created or published yet or if API failed

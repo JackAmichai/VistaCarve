@@ -37,7 +37,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
             }
         }
     } catch (err) {
-        console.warn("Failed to fetch product from Wix or token invalid. Falling back to mocks...", err);
+        // Silently fail and fallback to mocks
     }
 
     // MOCK DATA FALLBACK

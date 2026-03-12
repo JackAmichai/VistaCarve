@@ -14,7 +14,7 @@ export default async function HomePage() {
     const response = await wixClient.products.queryProducts().limit(15).find();
     allProducts = response.items || [];
   } catch (err) {
-    console.warn("Failed to fetch products from Wix, loading local mocks:", err);
+    // Silently fail and fallback to mocks
   }
 
   // Fallback products for demo/testing if Wix is not connected or returns an error
@@ -47,11 +47,8 @@ export default async function HomePage() {
     <div className="flex flex-col min-h-screen">
 
       {/* Hero Section (Vistaprint Style Dark Block) */}
-      <MotionSection
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="bg-white/80 backdrop-blur-md text-gray-900 pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden shadow-xl border border-white/40 transition-all"
+      <section
+        className="bg-white/80 backdrop-blur-md text-gray-900 pt-16 pb-20 px-4 mt-8 mx-4 md:mx-8 rounded-2xl relative overflow-hidden shadow-xl border border-white/40"
       >
         {/* Decorative background elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none mix-blend-overlay">
@@ -93,14 +90,10 @@ export default async function HomePage() {
             </Link>
           </div>
         </div>
-      </MotionSection>
+      </section>
 
       {/* Trust Badges */}
-      <MotionSection
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+      <section
         className="py-12 glass-panel mt-12 mx-4 md:mx-8 rounded-2xl mb-12"
       >
         <div className="container mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -132,7 +125,7 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
-      </MotionSection>
+      </section>
 
       {/* Our Process Section */}
       <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto w-full">
@@ -298,12 +291,7 @@ export default async function HomePage() {
         />
 
         {/* Concept Ad Block (Advanced Visuals) */}
-        <MotionDiv
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 concept-wrapper"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 concept-wrapper">
 
           <Link href="/shop/wood" className="concept concept-four group aspect-square block w-full !h-auto">
             <Image src="/images/wood_carvings.png" alt="Wood Carvings" fill className="object-cover transition-transform duration-700 group-hover:scale-105 z-0" />
@@ -330,7 +318,7 @@ export default async function HomePage() {
             </div>
           </Link>
 
-        </MotionDiv>
+        </div>
 
         {bestselling.length > 0 && (
           <ProductCarousel

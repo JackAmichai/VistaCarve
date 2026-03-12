@@ -13,7 +13,6 @@ export default async function ConsultationPage() {
         const response = await wixClient.services.queryServices().find();
         services = response.items || [];
     } catch (err: any) {
-        console.error("Failed to fetch Wix Bookings services:", err);
         error = err.message;
 
         // Mock fallback if Wix Bookings isn't fully installed or published on the dashboard yet
