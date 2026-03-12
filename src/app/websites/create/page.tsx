@@ -27,26 +27,34 @@ export default function CreateWebsiteWizard() {
         }, 100);
 
         try {
-            // CALL THE SERVER ACTION
-            const result = await provisionWixSite(businessName, siteType);
+            // CALL THE MOCKED API ROUTE DIRECTLY
+            const response = await fetch('/api/wix-provision', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ businessName, siteType })
+            });
 
-            if (result.success && result.dashboardUrl) {
+            const data = await response.json();
+
+            if (response.ok && data.success && data.ssoUrl) {
                 setProvisionProgress(100);
                 
-                // MOCK B2B FLOW: Seamless transition logic
+                // MOCKED B2B FLOW: Seamless transition logic
                 // Automatically redirect the user to the Wix Dashboard upon successful provisioning
                 setTimeout(() => {
                     clearInterval(interval);
-                    window.location.href = result.dashboardUrl!;
-                }, 1200); // Small delay to let the user see the "100%" success state
+                    window.location.href = data.ssoUrl;
+                }, 1000); // Small delay for visual completion
             } else {
-                setError(result.error || "Unknown server error");
+                setError(data.error || "Failed to generate site. Please try again.");
                 setStep(5); // Error state
                 clearInterval(interval);
             }
         } catch (err: any) {
-            console.error(err);
-            setError(err.message || "A network error occurred. Please try again.");
+            console.error("Fetch error:", err);
+            setError("A connection error occurred. Please ensure the server is running.");
             setStep(5);
             clearInterval(interval);
         }
