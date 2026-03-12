@@ -31,12 +31,14 @@ export default function CreateWebsiteWizard() {
             const result = await provisionWixSite(businessName, siteType);
 
             if (result.success && result.dashboardUrl) {
-                setDashboardUrl(result.dashboardUrl);
                 setProvisionProgress(100);
+                
+                // MOCK B2B FLOW: Seamless transition logic
+                // Automatically redirect the user to the Wix Dashboard upon successful provisioning
                 setTimeout(() => {
                     clearInterval(interval);
-                    setStep(4);
-                }, 500);
+                    window.location.href = result.dashboardUrl!;
+                }, 1200); // Small delay to let the user see the "100%" success state
             } else {
                 setError(result.error || "Unknown server error");
                 setStep(5); // Error state

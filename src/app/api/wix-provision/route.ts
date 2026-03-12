@@ -1,86 +1,33 @@
 import { NextResponse } from 'next/server';
 
 /**
- * Step 2: Generate SSO Token (Mocked Flow)
- * This function simulates the ITP (Identity Token Provider) flow.
- * In a real-world scenario, this would involve calling a Wix SSO endpoint
- * to exchange the account details for a secure SSO token.
- * 
- * @param accountId - The ID of the newly provisioned Wix account
- * @returns A mocked SSO URL for seamless dashboard transition
+ * MOCKED B2B FLOW: Simulating Account Provisioning and SSO generation.
+ * This route is used for demonstration purposes in the Wix Solution Engineer assignment.
+ * It removes all real external dependencies to ensure a stable PoC experience.
  */
-function generateMockSsoUrl(accountId: string): string {
-  // This demonstrates the seamless transition concept for the Wix Partner integration PoC
-  return `https://manage.wix.com/dashboard?mockSsoToken=true&accountId=${accountId}`;
-}
-
 export async function POST() {
   try {
-    // 1. Environment Variables Check
-    const WIX_API_KEY = process.env.WIX_API_KEY;
+    // 1. Simulate Network Delay
+    // This allows the frontend to demonstrate its loading states (spinners/loaders)
+    const delayMs = 1800; // Simulated latency of 1.8 seconds
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
 
-    if (!WIX_API_KEY) {
-      console.error('Missing WIX_API_KEY environment variable');
-      return NextResponse.json(
-        { error: 'Internal Server Error: Missing Wix API Key' },
-        { status: 500 }
-      );
-    }
-
-    // 2. Step 1 - Provision Account (Real API Call)
-    // Payload based on the requested structure for the Wix Create Account API
-    const provisionPayload = {
-      roles: ['owner_role_id_mock'],
-      user: {
-        sso_identities: [
-          {
-            sso_id: 'mock_sso_id',
-            user_id: 'mock_user_id',
-          },
-        ],
-        email: {
-          is_verified: true,
-          email_address: 'testuser@vistacarve.com',
-        },
-      },
+    // 2. MOCKED B2B FLOW: Prepare simulated success response
+    // In a production environment, this data would be fetched from:
+    // https://www.wixapis.com/accounts/v1/accounts/create
+    const mockResponse = {
+      success: true,
+      accountId: "mock-b2b-account-987654321",
+      ssoUrl: "https://manage.wix.com/dashboard?mock_sso_session=true"
     };
 
-    const response = await fetch('https://www.wixapis.com/accounts/v1/accounts/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': WIX_API_KEY,
-      },
-      body: JSON.stringify(provisionPayload),
-    });
+    console.log('[MOCK B2B API] Successfully simulated site provisioning.');
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error('Wix API Error:', errorData);
-      return NextResponse.json(
-        { error: 'Failed to provision Wix account', details: errorData },
-        { status: response.status }
-      );
-    }
-
-    const data = await response.json();
-    const accountId = data.accountId;
-
-    if (!accountId) {
-      return NextResponse.json(
-        { error: 'Invalid response from Wix API: Missing accountId' },
-        { status: 502 }
-      );
-    }
-
-    // 3. Step 2 - Generate SSO Token (Mocked Flow)
-    const ssoUrl = generateMockSsoUrl(accountId);
-
-    // 4. Response
-    return NextResponse.json({ ssoUrl }, { status: 200 });
+    // 3. Return Mocked Response
+    return NextResponse.json(mockResponse, { status: 200 });
 
   } catch (error) {
-    console.error('Unexpected error in wix-provision API:', error);
+    console.error('[MOCK B2B API] Unexpected error:', error);
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 }
