@@ -1,4 +1,4 @@
-import wixClient from "@/lib/wixClient";
+import { getServices } from "@/lib/wixData";
 import Image from "next/image";
 import { CalendarDays, Clock, Video, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -6,55 +6,8 @@ import Link from "next/link";
 export const revalidate = 60;
 
 export default async function ConsultationPage() {
-    let services: any[] = [];
+    const services = await getServices();
     let error = null;
-
-    try {
-        const response = await wixClient.services.queryServices().find();
-        services = response.items || [];
-    } catch (err: any) {
-        error = err.message;
-
-        // Mock fallback if Wix Bookings isn't fully installed or published on the dashboard yet
-        services = [
-            {
-                _id: "mock1",
-                name: "Custom Design Consultation",
-                description: "Book a 30-minute video call with our master carvers to discuss your unique project idea, material selection, and get a preliminary quote.",
-                schedule: {
-                    durationInMinutes: 30
-                },
-                media: {
-                    mainMedia: {
-                        image: "/images/wood_bg.jpg"
-                    }
-                },
-                paymentOptions: {
-                    wixPayOnline: {
-                        price: 0
-                    }
-                }
-            },
-            {
-                _id: "mock2",
-                name: "Corporate Gifting Strategy",
-                description: "Need 50+ custom engraved items? Let's discuss timelines, bulk pricing discounts, and logistics for your upcoming corporate event.",
-                schedule: {
-                    durationInMinutes: 45
-                },
-                media: {
-                    mainMedia: {
-                        image: "/images/metal1.jpg"
-                    }
-                },
-                paymentOptions: {
-                    wixPayOnline: {
-                        price: 0
-                    }
-                }
-            }
-        ];
-    }
 
     return (
         <div className="min-h-screen bg-gray-50 pb-20">
@@ -78,7 +31,7 @@ export default async function ConsultationPage() {
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {services.map((service) => (
+                    {(services as any[]).map((service: any) => (
                         <div key={service._id} className="bg-white rounded-2xl shadow-xl overflow-hidden group flex flex-col">
                             <div className="relative h-64 w-full bg-gray-200 overflow-hidden">
                                 {service.media?.mainMedia?.image ? (

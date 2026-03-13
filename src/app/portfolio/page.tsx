@@ -1,62 +1,12 @@
-import wixClient from "@/lib/wixClient";
+import { getPortfolioItems } from "@/lib/wixData";
 import { ImageIcon, Maximize2, Layers } from "lucide-react";
 import Image from "next/image";
 
 export const revalidate = 60;
 
 export default async function PortfolioPage() {
-    let portfolioItems: any[] = [];
+    const portfolioItems = await getPortfolioItems();
     let error = null;
-
-    try {
-        // Query a hypothetical 'Portfolio' collection in Wix CMS
-        const response = await wixClient.items.query("Portfolio").find();
-        portfolioItems = response.items || [];
-    } catch (err: any) {
-        // Silently fail and fallback to mocks
-    }
-
-    // Mock fallback if the CMS collection isn't created or published yet or if API failed
-    if (!portfolioItems || portfolioItems.length === 0) {
-        portfolioItems = [
-            {
-                _id: "mock1",
-                data: {
-                    title: "Modern Minimalist Signage",
-                    description: "A sleek, black-on-wood carved sign created for a boutique coffee shop in Brooklyn.",
-                    image: "/images/wood_bg.jpg",
-                    category: "Commercial"
-                }
-            },
-            {
-                _id: "mock2",
-                data: {
-                    title: "Anniversary Metal Engraving",
-                    description: "Detailed commemorative metal plate with custom flourishing and typography.",
-                    image: "/images/metal1.jpg",
-                    category: "Personal"
-                }
-            },
-            {
-                _id: "mock3",
-                data: {
-                    title: "Architectural Wood Panel",
-                    description: "Large scale CNC routed wood paneling for a hotel lobby.",
-                    image: "/images/wood_bg.jpg",
-                    category: "Architectural"
-                }
-            },
-            {
-                _id: "mock4",
-                data: {
-                    title: "Industrial Maker Plate",
-                    description: "Heavy-duty etched stainless steel branding plate for machinery.",
-                    image: "/images/metal1.jpg",
-                    category: "Industrial"
-                }
-            }
-        ];
-    }
 
     // Extract unique categories for filter UI (mock functionality for demo)
     const categories = Array.from(new Set(portfolioItems.map(item => item.data?.category).filter(Boolean)));

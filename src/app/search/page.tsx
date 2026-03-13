@@ -1,8 +1,6 @@
-"use client";
-
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import wixClient from "@/lib/wixClient";
+import { getProducts } from "@/lib/wixData";
 import ProductCarousel from "@/components/product/ProductCarousel";
 import { SearchIcon, Loader2 } from "lucide-react";
 
@@ -18,19 +16,15 @@ export default function SearchPage() {
             if (!query) return;
             setIsLoading(true);
             try {
-                // Perform a basic text search against the Wix products
-                // Depending on the SDK setup, this might need refinement
-                const response = await wixClient.products.queryProducts()
-                    .startsWith("name", query)
-                    .find();
-
-                setProducts(response.items || []);
+                // For demo/PoC, we'll just use the mock-safe getProducts and client-side filter
+                const all = await getProducts();
+                const filtered = all.filter(p => 
+                    p.name?.toLowerCase().includes(query.toLowerCase()) || 
+                    p.slug?.toLowerCase().includes(query.toLowerCase())
+                );
+                setProducts(filtered);
             } catch (error) {
-                // Silently fail and fallback to mocks
-                setProducts([
-                    { _id: "m1", name: "Premium Oak Sign", slug: "premium-oak-sign", priceData: { formatted: { price: "$49.99" } }, media: { mainMedia: { image: { url: "/images/wood/carribian islands wood.png" } } } },
-                    { _id: "m2", name: "Custom Metal Plaque", slug: "custom-metal-plaque", priceData: { formatted: { price: "$79.99" } }, media: { mainMedia: { image: { url: "/images/metal/dog metal.png" } } } },
-                ]);
+                // getProducts already handles mocks
             } finally {
                 setIsLoading(false);
             }

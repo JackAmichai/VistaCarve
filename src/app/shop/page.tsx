@@ -1,4 +1,4 @@
-import wixClient from "@/lib/wixClient";
+import { getCollections } from "@/lib/wixData";
 import ProductCard from "@/components/product/ProductCard";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,25 +6,7 @@ import Image from "next/image";
 export const revalidate = 60;
 
 export default async function ShopPage() {
-    let collections: any[] = [];
-    try {
-        const response = await wixClient.collections.queryCollections().find();
-        collections = response.items || [];
-    } catch (err) {
-        // Silently fail and fallback to mocks
-    }
-
-    // Fallback categories for demo/testing if Wix is not connected
-    if (!collections || collections.length === 0) {
-        collections = [
-            { _id: "col1", name: "Wood Carvings", slug: "wood-carvings", media: { mainMedia: { image: { url: "/images/wood_carvings.png" } } } },
-            { _id: "col2", name: "Metal Engravings", slug: "metal-engravings", media: { mainMedia: { image: { url: "/images/metal_engraving.png" } } } },
-            { _id: "col3", name: "Stone & Marble", slug: "stone-carvings", media: { mainMedia: { image: { url: "/images/stone_marble_carving.png" } } } },
-            { _id: "col4", name: "Corporate Gifts", slug: "corporate-gifts", media: { mainMedia: { image: { url: "/images/corporate/pen gift.png" } } } },
-            { _id: "col5", name: "Wedding Decor", slug: "wedding-decor", media: { mainMedia: { image: { url: "/images/wedding/Jesus wedding.png" } } } },
-            { _id: "col6", name: "Custom Signage", slug: "custom-signage", media: { mainMedia: { image: { url: "/images/custom/Gemini_Generated_Image_13kg8l13kg8l13kg.png" } } } },
-        ];
-    }
+    const collections = await getCollections();
 
     return (
         <div className="container mx-auto px-4 md:px-8 py-12 flex-1">
