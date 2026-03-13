@@ -20,16 +20,24 @@ export const useCartStore = create<CartState>((set) => ({
     error: null,
 
     fetchCart: async () => {
+        // Guard: only fetch if Wix is actually configured
+        const isConfigured = !!(process.env.NEXT_PUBLIC_WIX_APP_ID && process.env.NEXT_PUBLIC_SITE_ID);
+        
+        if (!isConfigured) {
+            set({ cart: { lineItems: [] }, isLoading: false });
+            return;
+        }
+
         set({ isLoading: true, error: null });
         try {
             const current = await wixClient.currentCart.getCurrentCart();
             set({ cart: current, isLoading: false });
         } catch (err: any) {
-            console.warn("Wix fetchCart failed, mostly expected due to missing/invalid client ID:", err?.message || err);
+            console.warn("Wix fetchCart failed, likely missing proper credentials or session:", err?.message || err);
+            
+            // Fallback to empty cart for PoC demonstration
+            set({ cart: { lineItems: [] }, isLoading: false });
 
-            // If the error is an Auth error (400 Bad Request) due to invalid session cookie,
-            // clear the session cookie and reload to spawn a fresh visitor session.
-            // Note: Wix SDK sometimes wraps 400 errors in a generic "System error occurred" exception message.
             const errMsg = err.message?.toLowerCase() || "";
             if (typeof window !== "undefined" && (errMsg.includes("400") || errMsg.includes("bad request") || err.details?.applicationError?.code === 400 || errMsg.includes("system error occurred"))) {
                 const prevSession = Cookies.get("session");
@@ -40,9 +48,6 @@ export const useCartStore = create<CartState>((set) => ({
                     return;
                 }
             }
-
-            // For a fresh session, fetching cart might return 404 until cart is created
-            set({ error: err.message || "Failed to fetch cart", isLoading: false });
         }
     },
 
