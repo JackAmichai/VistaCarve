@@ -14,7 +14,7 @@ export async function POST() {
       {
         "success": true,
         "accountId": "mock-b2b-account-987654321",
-        "ssoUrl": "https://manage.wix.com/dashboard?mock_sso_session=true"
+        "ssoUrl": "/websites/success"
       },
       { status: 200 }
     );

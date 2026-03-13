@@ -40,6 +40,7 @@ export default function CreateWebsiteWizard() {
 
             if (response.ok && data.success && data.ssoUrl) {
                 setProvisionProgress(100);
+                setDashboardUrl(data.ssoUrl);
                 
                 // MOCKED B2B FLOW: Seamless transition logic
                 // Automatically redirect the user to the Wix Dashboard upon successful provisioning

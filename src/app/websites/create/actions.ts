@@ -17,7 +17,7 @@ export async function provisionWixSite(businessName: string, siteType: string) {
         // 2. MOCKED B2B FLOW: Return simulated success data
         // This represents a successful response from the Wix Solution Engineer assignment perspective
         const mockSiteId = "mock-b2b-site-" + Math.random().toString(36).substring(7);
-        const ssoUrl = "https://manage.wix.com/dashboard?mock_sso_session=true";
+        const ssoUrl = "/websites/success";
 
         console.log(`[MOCK B2B FLOW] Site provisioning simulated successfully: ${mockSiteId}`);
 
